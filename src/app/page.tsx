@@ -15,6 +15,8 @@ import afterOne from '../../public/after-1.jpg'
 import Services from "@/components/Services";
 import About from "@/components/About";
 import CallToAction from "@/components/CallToAction";
+import Step from "@/components/Step";
+import Value from "@/components/Value";
 
 export default function Home() {
   return (
@@ -46,6 +48,8 @@ export default function Home() {
       <Services />
       <About />
       <CallToAction />
+      <Step />
+      <Value />
     </div>
   );
 }
