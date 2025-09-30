@@ -52,7 +52,7 @@ const Value = () => {
                         className='border border-[#5B936C] px-8 md:px-15 py-10 flex flex-col items-center rounded-2xl bg-white/5 
                        hover:shadow-xl hover:scale-[1.02] transition-all duration-300'>
                         <Image
-                            className=" mb-4 w-[103px] h-[80px]"
+                            className="mb-4 w-[103px] h-[80px] object-contain"
                             src={value.icon}
                             alt={value.title}
 
