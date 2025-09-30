@@ -17,6 +17,9 @@ import About from "@/components/About";
 import CallToAction from "@/components/CallToAction";
 import Step from "@/components/Step";
 import Value from "@/components/Value";
+import Testimonial from "@/components/Testimonial";
+import Clients from "@/components/Clients";
+import CommercialClient from "@/components/CommercialClient";
 
 export default function Home() {
   return (
@@ -50,6 +53,9 @@ export default function Home() {
       <CallToAction />
       <Step />
       <Value />
+      <Testimonial />
+      <Clients />
+      <CommercialClient />
     </div>
   );
 }
