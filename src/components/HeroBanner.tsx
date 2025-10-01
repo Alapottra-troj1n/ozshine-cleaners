@@ -11,16 +11,16 @@ const poppins = Poppins({
 
 const HeroBanner = () => {
     return (
-        <section className={`${poppins.className} mt-[60px] mb-20`}>
+        <section id="hero-form" className={`${poppins.className} mt-[60px] mb-20`}>
             <div className="container mx-auto px-4 max-w-7xl">
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
                     {/* LEFT COLUMN */}
                     <div className="lg:w-1/2 relative">
                         <div className="text-6xl sm:text-7xl lg:text-[80px] lg:leading-[1.1] ">
-                            <h1 className="font-normal text-black">
+                            <h1 className=" text-black font-semibold">
                                 Your Home.
                             </h1>
-                            <h1 className="font-normal text-[#0F5E46]">Our Priority!</h1>
+                            <h1 className="font-semibold text-[#0F5E46]">Our Priority!</h1>
                         </div>
                         <div className="mt-8 text-lg font-medium space-y-2 max-w-xl text-black ">
                             <p className="flex items-center gap-1">
