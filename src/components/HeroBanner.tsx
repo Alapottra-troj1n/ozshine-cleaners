@@ -17,12 +17,12 @@ const HeroBanner = () => {
                     {/* LEFT COLUMN */}
                     <div className="lg:w-1/2 relative">
                         <div className="text-6xl sm:text-7xl lg:text-[80px] lg:leading-[1.1] ">
-                            <h1 className="font-normal text-gray-900 dark:text-gray-100">
+                            <h1 className="font-normal text-black">
                                 Your Home.
                             </h1>
                             <h1 className="font-normal text-[#0F5E46]">Our Priority!</h1>
                         </div>
-                        <div className="mt-8 text-lg font-medium space-y-2 max-w-xl text-gray-900 dark:text-gray-100">
+                        <div className="mt-8 text-lg font-medium space-y-2 max-w-xl text-black ">
                             <p className="flex items-center gap-1">
                                 <span className="mr-2 text-2xl leading-none font-bold text-[#0F5E46]">
                                     <img src="/Location-Exit.png" alt="Location-exit icon" className="w-5 h-5 text-[#0F5E46]" />
