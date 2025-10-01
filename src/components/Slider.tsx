@@ -122,17 +122,6 @@ const CustomSwiper: React.FC<any> = ({
                     </div>
                 ))}
             </div>
-            <div className="swiper-pagination flex justify-center mt-4">
-                {Array(Math.ceil(totalSlides / slidesPerView)).fill(0).map((_, index) => (
-                    <span
-                        key={index}
-                        className={`w-2.5 h-2.5 mx-1 rounded-full cursor-pointer transition-colors ${index * slidesPerView <= activeIndex && (index + 1) * slidesPerView > activeIndex
-                            ? 'bg-gray-100' : 'bg-gray-300'
-                            }`}
-                        onClick={() => goToSlide(index * slidesPerView)}
-                    ></span>
-                ))}
-            </div>
             {navigation && navigation.prevEl && (
                 <style>{`
                     .swiper-button-prev-custom { 
@@ -197,7 +186,7 @@ const BeforeAfterSlider: React.FC<{
     return (
         <div
             ref={containerRef}
-            className="relative select-none touch-none w-full shadow-lg overflow-hidden rounded-lg transition-transform duration-300 hover:shadow-2xl"
+            className="relative select-none touch-none w-full shadow-lg overflow-hidden rounded-lg transition-transform duration-300 "
             style={{ height }}>
             <img
                 src={afterImage}
