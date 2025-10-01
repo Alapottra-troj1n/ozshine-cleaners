@@ -47,7 +47,7 @@ const HeroBanner = () => {
                     <div className="lg:w-1/2 w-full mt-20">
                         <div className="bg-white p-8 sm:p-10 rounded-xl w-full lg:max-w-xl lg:ml-auto ">
                             <p className="text-lg text-center mb-6 font-bold">
-                                Get a free quote today or ! <span className="text-[#EE892A] font-bold">call us</span>
+                                Get a free quote today or  <span className="text-[#EE892A] font-bold">call us </span>!
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 mt-8 gap-4">
                                 <div className="flex flex-col gap-8">
