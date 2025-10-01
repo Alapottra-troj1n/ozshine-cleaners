@@ -44,7 +44,7 @@ const Features = () => {
                             className="filter brightness-0 invert"
                         />
                     </div>
-                    <p className="text-sm font-medium tracking-wide w-1/2">
+                    <p className="text-lg font-medium w-2/3">
                         {feature.title}
                     </p>
                 </div>
