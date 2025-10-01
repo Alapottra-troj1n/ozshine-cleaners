@@ -19,7 +19,8 @@ const CommercialClient = () => {
             <div className='grid grid-cols-4'>
                 {clients.map((client, index) =>
                     <div key={index} className='py-10 px-20'>
-                        <Image  src={client} alt='client-image' className='h-[160px] object-fit w-auto' />
+                        <Image quality={100}
+                            priority src={client} alt='client-image' className='h-[100px] object-fit w-auto' />
                     </div>
                 )}
             </div>
