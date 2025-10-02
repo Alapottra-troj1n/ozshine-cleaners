@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OzShine Cleaners"
+  title: "OzShine Cleaner Melbourne | Best Cleaning services in Melbourne"
 };
 
 export default function RootLayout({
