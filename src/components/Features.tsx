@@ -33,7 +33,7 @@ const features = [
 const Features = () => {
     return (
         <div className="bg-[#0B4936]">
-            <div className={`max-w-7xl mx-auto py-8 md:mt-48 ${poppins.className}`}>
+            <div className={`max-w-7xl mx-auto py-8 md:mt-44 ${poppins.className}`}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-white gap-10 md:gap-0">
                     {features.map((feature, index) => (
                         <div key={index} className="flex flex-col items-center text-center px-4">
