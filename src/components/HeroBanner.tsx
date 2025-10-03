@@ -1,8 +1,10 @@
-import React from "react";
+"use client"
+import React, { useRef, useState } from "react";
 import { Poppins } from "next/font/google";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaPhone } from "react-icons/fa";
 import Image from "next/image";
+import emailjs from "emailjs-com";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -11,12 +13,50 @@ const poppins = Poppins({
 });
 
 const HeroBanner = () => {
+    const formRef = useRef<HTMLFormElement>(null);
+    const [success, setSuccess] = useState("");
+
+    const sendEmail = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!formRef.current) return;
+
+        emailjs.sendForm(
+            "service_19cfvwi",
+            "template_7pb4jal",
+            formRef.current,
+            "omuw8vcWG1371pASo"
+        )
+            .then(
+                (result) => {
+                    console.log("Admin email sent:", result.text);
+                    setSuccess("Your request has been submitted!");
+                },
+                (error) => {
+                    console.log("Admin email error:", error.text);
+                    setSuccess("Something went wrong, please try again.");
+                }
+            );
+
+        // Auto-reply to customer
+        emailjs.sendForm(
+            "service_19cfvwi",
+            "template_ovj7h1s",
+            formRef.current,
+            "omuw8vcWG1371pASo"
+        )
+            .then(
+                (result) => console.log("Auto-reply sent:", result.text),
+                (error) => console.log("Auto-reply error:", error.text)
+            );
+        formRef.current?.reset();
+    };
+
     return (
         <section id="hero-form" className={`${poppins.className} mt-[50px] md:mt-[60px] mb-20`}>
             <div className="mx-auto px-4 max-w-7xl">
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
                     {/* LEFT COLUMN */}
-                    <div className="w-full lg:w-1/2 relative mb-40 md:mb-0">
+                    <section className="w-full lg:w-1/2 relative mb-40 md:mb-0">
                         <div className="text-5xl sm:text-7xl text-center lg:text-left lg:text-[80px] lg:leading-[1.1] ">
                             <h1 className="text-black font-semibold ">
                                 Your Home.
@@ -50,28 +90,33 @@ const HeroBanner = () => {
                                 className="object-cover transform scale-x-[-1] w-[300px] h-[300px] md:w-[482px] md:h-[500px] [filter:drop-shadow(25px_5px_5px_rgba(0,0,0,0.15))]"
                             />
                         </div>
-                    </div>
+                    </section>
 
-                    <div className="lg:w-1/2 w-full mt-20">
+                    {/* FORM SECTION */}
+                    <section className="lg:w-1/2 w-full mt-20">
                         <div className="bg-white sm:p-10 rounded-xl w-full lg:max-w-xl lg:ml-auto ">
                             <p className="text-lg text-center mt-15 md:mt-0 mb-6 font-bold">
                                 Get a free quote today or  <span className="text-[#EE892A] font-bold">call us </span>!
                             </p>
-                            <form className="grid grid-cols-1 md:grid-cols-2 mt-8 gap-4">
+                            <form ref={formRef} onSubmit={sendEmail} className="grid grid-cols-1 md:grid-cols-2 mt-8 gap-4">
                                 <div className="flex flex-col gap-8">
                                     <input
                                         type="text"
+                                        name="name"
                                         placeholder="Name"
+                                        required
                                         className="p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#0F5E46] focus:outline-none transition-colors"
                                     />
                                     <input
                                         type="email"
+                                        name="email"
                                         placeholder="Email Address (required)"
                                         required
                                         className="p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#0F5E46] focus:outline-none transition-colors"
                                     />
                                     <input
                                         type="tel"
+                                        name="phone"
                                         placeholder="Phone Number (optional)"
                                         className="p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#0F5E46] focus:outline-none transition-colors"
                                     />
@@ -79,7 +124,9 @@ const HeroBanner = () => {
                                 <div className="flex flex-col gap-4">
                                     <div className="relative">
                                         <select
+                                            name="service"
                                             defaultValue=""
+                                            required
                                             className="p-3 border border-gray-300 rounded bg-white appearance-none focus:ring-2 focus:ring-[#0F5E46] focus:outline-none transition-colors w-full pr-10">
                                             <option value="" disabled>I'm Looking For:</option>
                                             <option>Regular House Cleaning</option>
@@ -91,28 +138,23 @@ const HeroBanner = () => {
                                         />
                                     </div>
                                     <textarea
+                                        name="message"
                                         placeholder="Describe Message"
                                         rows={5}
+                                        required
                                         className="p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#0F5E46] focus:outline-none transition-colors w-full">
                                     </textarea>
                                 </div>
+                                <div className="flex flex-col sm:flex-row gap-4 mt-8 col-span-full">
+                                    <button type="submit" className="bg-[#0F5E46] text-white font-bold py-3 px-6 rounded flex-1">Get Free Quote</button>
+                                    <a href="tel:+61452676982" className="bg-[#FF6500] text-white font-bold py-3 px-6 rounded flex-1 flex items-center justify-center gap-2"><FaPhone />+61452676982</a>
+                                </div>
                             </form>
-
-                            {/* BUTTONS */}
-                            <div className="flex flex-col sm:flex-row gap-4 mt-8 md:px-10">
-                                <button
-                                    type="submit"
-                                    className="bg-[#0F5E46] text-white font-bold py-3 px-6 rounded flex-1 shadow-md hover:shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:-translate-y-0.5">
-                                    Get Free Quote
-                                </button>
-                                <a
-                                    href="tel:+61452676982"
-                                    className="bg-[#FF6500] text-white font-bold py-3 px-6 rounded flex-1 text-center shadow-md hover:shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2" >
-                                    <FaPhone />+61452676982
-                                </a>
-                            </div>
+                            {success && (
+                                <p className="text-center mt-4 text-green-600 font-semibold">{success}</p>
+                            )}
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </section>
