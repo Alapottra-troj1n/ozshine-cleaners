@@ -12,7 +12,7 @@ const poppins = Poppins({
 const HeroBanner = () => {
     return (
         <section id="hero-form" className={`${poppins.className} mt-[60px] mb-20`}>
-            <div className="container mx-auto px-4 max-w-7xl">
+            <div className=" mx-auto px-4 max-w-7xl">
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
                     {/* LEFT COLUMN */}
                     <div className="lg:w-1/2 relative">

@@ -15,14 +15,16 @@ const poppins = Poppins({
 const CommercialClient = () => {
     return (
         <div className='mt-20 bg-[#0B4936]'>
-            <h2 className={`text-center font-bold text-3xl text-white pt-10 ${poppins.className}`}>Our Commercial Clients</h2>
-            <div className='grid grid-cols-4'>
-                {clients.map((client, index) =>
-                    <div key={index} className='py-10 px-20'>
-                        <Image quality={100}
-                            priority src={client} alt='client-image' className='h-[100px] object-fit w-auto' />
-                    </div>
-                )}
+            <div className='max-w-7xl mx-auto'>
+                <h2 className={`text-center font-bold text-3xl text-white pt-10 ${poppins.className}`}>Our Commercial Clients</h2>
+                <div className='grid grid-cols-4'>
+                    {clients.map((client, index) =>
+                        <div key={index} className='py-10 px-20'>
+                            <Image quality={100}
+                                priority src={client} alt='client-image' className='h-[100px] object-fit w-auto' />
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

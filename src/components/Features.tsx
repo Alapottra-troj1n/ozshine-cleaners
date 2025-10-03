@@ -32,24 +32,27 @@ const features = [
 
 const Features = () => {
     return (
-        <div className={`bg-[#0B4936] grid grid-cols-4 px-10 text-white py-8 mt-48 ${poppins.className}`}>
-            {features.map((feature, index) =>
-                <div key={index} className="flex flex-col items-center text-center px-4">
-                    <div className="mb-3">
-                        <Image
-                            src={feature.icon}
-                            height={60}
-                            width={60}
-                            alt={feature.title}
-                            className="filter brightness-0 invert"
-                        />
-                    </div>
-                    <p className="text-lg font-medium w-2/3">
-                        {feature.title}
-                    </p>
+        <div className="bg-[#0B4936]">
+            <div className={`max-w-7xl mx-auto py-8 mt-48 ${poppins.className}`}>
+                <div className="grid grid-cols-4 text-white">
+                    {features.map((feature, index) => (
+                        <div key={index} className="flex flex-col items-center text-center px-4">
+                            <div className="mb-3">
+                                <Image
+                                    src={feature.icon}
+                                    height={60}
+                                    width={60}
+                                    alt={feature.title}
+                                    className="filter brightness-0 invert"
+                                />
+                            </div>
+                            <p className="text-lg font-medium w-2/3">{feature.title}</p>
+                        </div>
+                    ))}
                 </div>
-            )}
+            </div>
         </div>
+
     );
 };
 
