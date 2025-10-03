@@ -53,8 +53,8 @@ const HeroBanner = () => {
                     </div>
 
                     <div className="lg:w-1/2 w-full mt-20">
-                        <div className="bg-white py-6 sm:p-10 rounded-xl w-full lg:max-w-xl lg:ml-auto ">
-                            <p className="text-lg text-center mb-6 font-bold">
+                        <div className="bg-white sm:p-10 rounded-xl w-full lg:max-w-xl lg:ml-auto ">
+                            <p className="text-lg text-center mt-15 md:mt-0 mb-6 font-bold">
                                 Get a free quote today or  <span className="text-[#EE892A] font-bold">call us </span>!
                             </p>
                             <form className="grid grid-cols-1 md:grid-cols-2 mt-8 gap-4">
