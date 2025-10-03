@@ -30,7 +30,7 @@ const Clients = () => {
                 Domestic Clients
             </h2>
 
-            <div className="relative w-full max-w-5xl mx-auto">
+            <div className="relative max-w-sm md:max-w-5xl mx-auto">
                 <div className="flex justify-center">
                     <Image src={testimonials[currentIndex]} alt="location" className="object-contain" />
                 </div>
@@ -52,8 +52,8 @@ const Clients = () => {
                         <div
                             key={index}
                             className={`w-3 h-3 rounded-full mx-2 ${index === currentIndex ? 'bg-orange-500' : 'bg-gray-300'
-                                }`}
-                        ></div>
+                                }`}>
+                        </div>
                     ))}
                 </div>
             </div>
