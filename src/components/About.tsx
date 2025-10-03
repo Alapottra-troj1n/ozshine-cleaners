@@ -26,7 +26,7 @@ const features = [
 
 const About = () => {
     return (
-        <div className="max-w-7xl mx-auto mt-20 flex flex-col md:flex-row gap-10">
+        <div className="max-w-7xl px-2 md:px-0 mx-auto mt-20 flex flex-col md:flex-row gap-10">
             {/* Left Section */}
             <div className="md:w-2/3">
                 <div className="mb-5">
@@ -35,11 +35,11 @@ const About = () => {
                     </h2>
                 </div>
 
-                <h2 className={`text-[#136048] ${poppins.className} font-bold text-3xl md:w-2/3`}>
+                <h2 className={`text-[#136048] ${poppins.className} font-bold text-2xl md:text-3xl md:w-2/3`}>
                     Your Ultimate Home Cleaning Partner!
                 </h2>
 
-                <p className={`mt-6 ${poppins.className} text-lg mb-10 leading-relaxed text-gray-700`}>
+                <p className={`mt-6 ${poppins.className}  text-md md:text-lg mb-10 leading-relaxed text-gray-700`}>
                     As your best Melbourne cleaning company, we specialize in a range of
                     services designed to cater to your unique needs. From ensuring a
                     seamless transition with our meticulous End of Lease cleaning in

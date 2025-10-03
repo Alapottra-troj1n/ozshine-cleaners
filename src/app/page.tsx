@@ -25,7 +25,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="mb-10">
+    <div className="mb-10 overflow-x-hidden">
       <header>
         <Header />
       </header>
@@ -36,28 +36,18 @@ export default function Home() {
         <section aria-label="Our Features">
           <Features />
         </section>
+
         <section aria-label="Slider">
           <Slider
             slides={[
-              {
-                beforeImage: beforeTwo.src,
-                afterImage: afterTwo.src,
-              },
-              {
-                beforeImage: beforeThree.src,
-                afterImage: afterThree.src,
-              },
-              {
-                beforeImage: beforeFour.src,
-                afterImage: afterFour.src,
-              },
-              {
-                beforeImage: beforeOne.src,
-                afterImage: afterOne.src,
-              },
+              { beforeImage: beforeTwo.src, afterImage: afterTwo.src },
+              { beforeImage: beforeThree.src, afterImage: afterThree.src },
+              { beforeImage: beforeFour.src, afterImage: afterFour.src },
+              { beforeImage: beforeOne.src, afterImage: afterOne.src },
             ]}
             height={400}
           />
+
         </section>
         <section aria-label="Our Services">
           <Services />

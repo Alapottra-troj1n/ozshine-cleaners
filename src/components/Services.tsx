@@ -34,19 +34,18 @@ const services = [
         des: 'Our regular house cleaning service is designed to keep your home consistently fresh, tidy, and comfortable. From dusting and vacuuming to mopping floors and sanitizing surfaces. Using safe, eco-friendly products, we ensure your living space stays clean and healthy.'
     }
 ]
-
 const Services = () => {
     return (
         <div className='bg-[#0B4936] '>
             <div className='max-w-7xl mx-auto'>
                 <div className={`mt-5 flex items-center justify-center flex-col py-10 gap-5 text-white ${poppins.className}`}>
-                    <h2 className='text-3xl md:text-4xl font-bold'>Our Services</h2>
-                    <p className='text-lg text-center max-w-3xl'>
+                    <h2 className='text-3xl md:text-4xl font-bold '>Our Services</h2>
+                    <p className='text-lg text-center  md:max-w-3xl mx-1 '>
                         We Always Deliver Superior Service for Your Varied Cleaning Requirements in Melbourne
                     </p>
                 </div>
 
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 pb-16'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 px-2 gap-8 pb-16'>
                     {services.map((service, index) =>
                         <div
                             key={index}
@@ -58,8 +57,8 @@ const Services = () => {
                                 alt={service.title}
 
                             />
-                            <h2 className='text-[#FF9531] font-semibold text-2xl mb-3'>{service.title}</h2>
-                            <p className={`text-justify tracking-tight text-white text-xl leading-relaxed ${poppins.className}`}>
+                            <h2 className='text-[#FF9531] font-semibold text-xl md:text-2xl mb-3'>{service.title}</h2>
+                            <p className={`text-justify tracking-tight text-white text-md md:text-xl leading-relaxed ${poppins.className}`}>
                                 {service.des}
                             </p>
                         </div>

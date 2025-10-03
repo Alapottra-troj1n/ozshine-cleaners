@@ -1,174 +1,46 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
-import { Prata, Poppins } from "next/font/google";
+import React, { useState, useEffect, useRef } from "react";
+import { Poppins } from "next/font/google";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 const poppins = Poppins({
     weight: ["400", "600"],
     subsets: ["latin"],
     variable: "--font-poppins",
 });
 
-interface SlideType {
+interface BeforeAfterProps {
     beforeImage: string;
     afterImage: string;
-}
-
-interface SliderProps {
-    slides: SlideType[];
     height?: number;
-    spaceBetween?: number;
 }
 
+const BeforeAfter: React.FC<BeforeAfterProps> = ({ beforeImage, afterImage, height = 250 }) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [pos, setPos] = useState(50);
+    const [dragging, setDragging] = useState(false);
 
-const ArrowBackIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
-    </svg>
-);
-
-const ArrowForwardIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-    </svg>
-);
-
-const CustomSwiper: React.FC<any> = ({
-    children,
-    onInit,
-    navigation,
-    breakpoints,
-    className,
-    ...props
-}) => {
-    const slidesArray = React.Children.toArray(children);
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [slidesPerView, setSlidesPerView] = useState(1);
-    const [spaceBetween, setSpaceBetween] = useState(10);
-
-    useEffect(() => {
-        const handleResize = () => {
-            const width = window.innerWidth;
-            let newSlidesPerView = 1;
-            let newSpaceBetween = 10;
-
-            if (width >= 1024) {
-                newSlidesPerView = 3;
-                newSpaceBetween = 30;
-            } else if (width >= 640) {
-                newSlidesPerView = 2;
-                newSpaceBetween = 20;
-            }
-            setSlidesPerView(newSlidesPerView);
-            setSpaceBetween(newSpaceBetween);
-        };
-
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    const totalSlides = slidesArray.length;
-    const maxIndex = Math.max(0, totalSlides - slidesPerView);
-    const goToSlide = (index: number) => {
-        const clampedIndex = Math.max(0, Math.min(maxIndex, index));
-        setActiveIndex(clampedIndex);
-    };
-
-
-    useEffect(() => {
-        const mockSwiper = {
-            params: { navigation },
-            navigation: {
-                init: () => {
-
-                },
-                update: () => { }
-            }
-        };
-        if (navigation?.prevEl) {
-            navigation.prevEl.onclick = () => goToSlide(activeIndex - 1);
-        }
-        if (navigation?.nextEl) {
-            navigation.nextEl.onclick = () => goToSlide(activeIndex + 1);
-        }
-
-        if (onInit) {
-            onInit(mockSwiper);
-        }
-
-    }, [navigation, activeIndex, maxIndex, slidesPerView]);
-
-    const isPrevDisabled = activeIndex === 0;
-    const isNextDisabled = activeIndex >= maxIndex;
-
-    const itemWidth = 100 / slidesPerView;
-    const itemGap = spaceBetween;
-    const totalGap = itemGap * activeIndex;
-    const finalTransformValue = `translateX(calc(-${activeIndex * itemWidth}% - ${totalGap}px))`;
-
-    return (
-        <div className={`swiper-container overflow-hidden ${className}`}>
-            <div
-                className="swiper-wrapper flex transition-transform duration-500 ease-in-out"
-                style={{ transform: finalTransformValue }}>
-                {slidesArray.map((slide, index) => (
-                    <div
-                        key={index}
-                        className="swiper-slide shrink-0 flex justify-center items-center"
-                        style={{
-                            width: `calc(${100 / slidesPerView}% - ${spaceBetween / slidesPerView}px)`,
-                            marginRight: index < totalSlides - 1 ? `${spaceBetween}px` : '0px'
-                        }}>
-                        {slide}
-                    </div>
-                ))}
-            </div>
-            {navigation && navigation.prevEl && (
-                <style>{`
-                    .swiper-button-prev-custom { 
-                        opacity: ${isPrevDisabled ? 0.3 : 1}; 
-                        pointer-events: ${isPrevDisabled ? 'none' : 'auto'} !important;
-                    }
-                `}</style>
-            )}
-            {navigation && navigation.nextEl && (
-                <style>{`
-                    .swiper-button-next-custom { 
-                        opacity: ${isNextDisabled ? 0.3 : 1}; 
-                        pointer-events: ${isNextDisabled ? 'none' : 'auto'} !important;
-                    }
-                `}</style>
-            )}
-        </div>
-    );
-};
-const CustomSwiperSlide: React.FC<any> = ({ children }) => <>{children}</>;
-
-const BeforeAfterSlider: React.FC<{
-    beforeImage: string;
-    afterImage: string;
-    height: number;
-}> = ({ beforeImage, afterImage, height }) => {
-    const containerRef = useRef<HTMLDivElement | null>(null);
-    const [sliderPos, setSliderPos] = useState<number>(50);
-    const [isDragging, setIsDragging] = useState<boolean>(false);
-    const handleRef = useRef<HTMLDivElement | null>(null);
-    const startDrag = () => setIsDragging(true);
-    const stopDrag = () => setIsDragging(false);
-    const onDrag = (clientX: number) => {
+    const updatePos = (clientX: number) => {
         if (!containerRef.current) return;
         const rect = containerRef.current.getBoundingClientRect();
-        let pos = ((clientX - rect.left) / rect.width) * 100;
-        pos = Math.max(0, Math.min(100, pos));
-        setSliderPos(pos);
+        let newPos = ((clientX - rect.left) / rect.width) * 100;
+        newPos = Math.max(0, Math.min(100, newPos));
+        setPos(newPos);
     };
 
     useEffect(() => {
-        if (!isDragging) return;
+        if (!dragging) return;
+        const style = document.body.style as any;
+        const value = 'none';
+        style.userSelect = value;
+        style.MozUserSelect = value;
+        style.webkitUserSelect = value;
+        style.msUserSelect = value;
 
-        const handleMouseMove = (e: MouseEvent) => onDrag(e.clientX);
-        const handleMouseUp = () => stopDrag();
-        const handleTouchMove = (e: TouchEvent) => onDrag(e.touches[0].clientX);
-        const handleTouchEnd = () => stopDrag();
+        const handleMouseMove = (e: MouseEvent) => updatePos(e.clientX);
+        const handleMouseUp = () => setDragging(false);
+        const handleTouchMove = (e: TouchEvent) => updatePos(e.touches[0].clientX);
+        const handleTouchEnd = () => setDragging(false);
 
         window.addEventListener("mousemove", handleMouseMove);
         window.addEventListener("mouseup", handleMouseUp);
@@ -180,97 +52,105 @@ const BeforeAfterSlider: React.FC<{
             window.removeEventListener("mouseup", handleMouseUp);
             window.removeEventListener("touchmove", handleTouchMove);
             window.removeEventListener("touchend", handleTouchEnd);
+            const resetValue = '';
+            style.userSelect = resetValue;
+            style.MozUserSelect = resetValue;
+            style.webkitUserSelect = resetValue;
+            style.msUserSelect = resetValue;
         };
-    }, [isDragging]);
+    }, [dragging]);
 
     return (
         <div
             ref={containerRef}
-            className="relative select-none touch-none w-full shadow-lg overflow-hidden rounded-lg transition-transform duration-300 "
-            style={{ height }}>
-            <img
-                src={afterImage}
-                alt="After (Background)"
-                className="absolute top-0 left-0 w-full h-full object-cover"
-                style={{ aspectRatio: '4/3' }}
-            />
+            className="relative w-full overflow-hidden rounded-lg shadow-lg"
+            style={{ height }}
+        >
+            <img src={afterImage} className="absolute top-0 left-0 w-full h-full object-cover" />
             <img
                 src={beforeImage}
-                alt="Before (Clipped Overlay)"
                 className="absolute top-0 left-0 w-full h-full object-cover"
-
-                style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)`, aspectRatio: '4/3' }}
+                style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
             />
-
             <div
-                ref={handleRef}
-                onMouseDown={startDrag}
-                onTouchStart={startDrag}
-                className="swiper-no-swiping absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-16 h-16 bg-white rounded-full shadow-2xl border border-white  cursor-ew-resize flex items-center justify-center z-20 transition-transform duration-100 ease-out hover:scale-110"
-                style={{ left: `${sliderPos}%` }}>
-                <div className="text-2xl text-gray-800 font-extrabold flex">
-                    <ArrowBackIcon className="w-5 h-5" />
-                    <ArrowForwardIcon className="w-5 h-5" />
-                </div>
+                className="absolute top-0 h-full border border-white z-10 pointer-events-none"
+                style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
+            />
+            <div
+                onMouseDown={() => setDragging(true)}
+                onTouchStart={() => setDragging(true)}
+                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-full shadow-xl cursor-ew-resize flex items-center justify-center z-20 focus:outline-none active:outline-none ring-0 selection:bg-transparent select-none"
+                style={{ left: `${pos}%`, outline: "none", WebkitTapHighlightColor: "transparent" }}>
+                <IoIosArrowBack className="w-4 h-4 text-gray-700" />
+                <IoIosArrowForward className="w-4 h-4 text-gray-700" />
             </div>
-            <div
-                className="absolute top-0 h-full border border-white shadow-inner pointer-events-none z-10"
-                style={{ left: `${sliderPos}%`, transform: 'translateX(-50%)' }}
-            />
         </div>
     );
 };
-const Slider: React.FC<SliderProps> = ({
-    slides,
-    height = 250,
-    spaceBetween = 20
-}) => {
-    const prevRef = useRef<HTMLDivElement>(null);
-    const nextRef = useRef<HTMLDivElement>(null);
+
+
+interface SlideType {
+    beforeImage: string;
+    afterImage: string;
+}
+
+interface SliderProps {
+    slides: SlideType[];
+    height?: number;
+}
+
+const Slider: React.FC<SliderProps> = ({ slides, height = 250 }) => {
+    const [active, setActive] = useState(0);
+    const [perView, setPerView] = useState(1);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const w = window.innerWidth;
+            if (w >= 1024) setPerView(3);
+            else if (w >= 640) setPerView(2);
+            else setPerView(1);
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const maxIndex = Math.max(0, slides.length - perView);
+
     return (
-        <>
+        <div className="w-full max-w-6xl mx-auto px-4">
             <div className={`flex flex-col items-center justify-center mt-15 mb-5 gap-3 ${poppins.className}`}>
-                <h2 className="text-[#145B42] font-bold text-3xl">Our Impeccable Results</h2>
-                <p className="text-lg">Witness Unmatched Excellence Displayed in Every Post-Cleaning Photograph in Melbourne</p>
+                <h2 className="text-[#145B42] font-bold text-2xl md:text-3xl">Our Impactable Results</h2>
+                <p className="text-md md:text-lg text-center">
+                    Witness Unmatched Excellence Displayed in Every Post-Cleaning Photograph in Melbourne
+                </p>
             </div>
-            <div className="relative w-full max-w-7xl mx-auto py-8 px-4">
-                <CustomSwiper
-                    onInit={(swiper: any) => {
-                        if (swiper.params.navigation) {
-                            swiper.params.navigation.prevEl = prevRef.current;
-                            swiper.params.navigation.nextEl = nextRef.current;
-                            swiper.navigation.init();
-                            swiper.navigation.update();
-                        }
-                    }}
-                    navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
-                    className="pb-10">
 
-                    {slides.map((slide, index) => (
-                        <CustomSwiperSlide key={index}>
-                            <BeforeAfterSlider
-                                beforeImage={slide.beforeImage}
-                                afterImage={slide.afterImage}
-                                height={height}
-                            />
-                        </CustomSwiperSlide>
+            <div className="relative overflow-hidden">
+                <div
+                    className="flex transition-transform duration-500"
+                    style={{ transform: `translateX(-${(active * 100) / perView}%)` }}>
+                    {slides.map((s, i) => (
+                        <div key={i} className="shrink-0 px-2" style={{ width: `${100 / perView}%` }}>
+                            <BeforeAfter beforeImage={s.beforeImage} afterImage={s.afterImage} height={height} />
+                        </div>
                     ))}
-                </CustomSwiper>
-
-                <div className="absolute inset-0 flex items-center justify-between z-30 pointer-events-none">
-                    <div
-                        ref={prevRef}
-                        className="swiper-button-prev-custom pointer-events-auto bg-white rounded-full p-3 shadow-xl hover:bg-gray-100 transition-colors cursor-pointer z-40 -ml-4 md:-ml-8 opacity-100 disabled:opacity-30 disabled:pointer-events-none">
-                        <ArrowBackIcon className="text-xl text-gray-800 w-6 h-6" />
-                    </div>
-                    <div
-                        ref={nextRef}
-                        className="swiper-button-next-custom pointer-events-auto bg-white rounded-full p-3 shadow-xl hover:bg-gray-100 transition-colors cursor-pointer z-40 -mr-4 md:-mr-8 opacity-100 disabled:opacity-30 disabled:pointer-events-none">
-                        <ArrowForwardIcon className="text-xl text-gray-800 w-6 h-6" />
-                    </div>
                 </div>
+
+                <button
+                    onClick={() => setActive((a) => Math.max(0, a - 1))}
+                    className="absolute top-1/2 left-2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md disabled:opacity-40 focus:outline-none active:outline-none"
+                    disabled={active === 0}>
+                    <IoIosArrowBack className="text-2xl cursor-pointer" />
+                </button>
+                <button
+                    onClick={() => setActive((a) => Math.min(maxIndex, a + 1))}
+                    className="absolute top-1/2 right-2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md disabled:opacity-40 focus:outline-none active:outline-none"
+                    disabled={active >= maxIndex}>
+                    <IoIosArrowForward className="text-2xl cursor-pointer" />
+                </button>
             </div>
-        </>
+        </div>
     );
 };
 

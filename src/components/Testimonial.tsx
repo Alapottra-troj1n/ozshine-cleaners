@@ -94,7 +94,7 @@ const Testimonial: React.FC = () => {
 
     return (
         <div className="bg-[#F5F5F5] py-20">
-            <h2 className={`${poppins.className} text-3xl text-[#145B42] text-center font-bold`}>Hear From Our Clients</h2>
+            <h2 className={`${poppins.className} text-2xl md:text-3xl text-[#145B42] text-center font-bold`}>Hear From Our Clients</h2>
             <div className="relative max-w-7xl mx-auto mt-8  flex items-center">
                 {/* Prev Button */}
                 <button onClick={prevSlide} className="z-20 text-2xl text-[#145B42] p-3 rounded cursor-pointer border border-white bg-white shadow-md hover:bg-[#145B42] hover:text-white transition-all">

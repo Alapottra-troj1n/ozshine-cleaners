@@ -26,7 +26,7 @@ const Clients = () => {
 
     return (
         <div className='mt-15'>
-            <h2 className={`text-center ${poppins.className} font-bold text-3xl mb-14 text-[#0B4936]`}>
+            <h2 className={`text-center ${poppins.className} font-bold text-2xl md:text-3xl mb-14 text-[#0B4936]`}>
                 Domestic Clients
             </h2>
 

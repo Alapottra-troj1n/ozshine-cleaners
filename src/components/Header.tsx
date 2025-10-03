@@ -16,13 +16,13 @@ const poppins = Poppins({
 
 const Header = () => {
     return (
-        <header className="flex justify-between max-w-7xl mx-auto p-5 items-center">
-            <Link href="/" className={`${prata.className} text-[26px] font-normal text-black`}>
+        <header className="flex justify-between max-w-7xl mx-auto p-5 items-center gap-5 md:gap-0">
+            <Link href="/" className={`${prata.className} text-xl md:text-[26px] font-normal text-black`}>
                 OzShine Cleaners
             </Link>
 
             <div className="flex items-center gap-2">
-                <FaPhone className="text-[#0E4E38]" aria-hidden="true" size={20} />
+                <FaPhone className="text-[#0E4E38] text-md md:text-lg"  />
                 <div className="flex flex-col leading-tight items-center">
                     <span className={`${poppins.className} text-sm font-normal`}>
                         Quick Contact

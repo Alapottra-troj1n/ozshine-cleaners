@@ -35,12 +35,12 @@ const Step = () => {
         <div>
             <div className='mt-20 flex flex-col items-center justify-center gap-5'>
                 <Image src={stepOne} alt='step-one' height={80} width={80} />
-                <h2 className={`text-[#0B4936] text-3xl font-bold ${poppins.className}`}>
+                <h2 className={`text-[#0B4936] text-2xl md:text-3xl font-bold text-center ${poppins.className}`}>
                     3-Step House Cleaning Melbourne Process
                 </h2>
             </div>
 
-            <div className='grid grid-cols-3 gap-8 mt-15 max-w-7xl mx-auto '>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-15 max-w-7xl mx-auto '>
                 {steps.map((step, index) => (
                     <div key={index} className="flex flex-col items-center text-center gap-4">
                         <Image
