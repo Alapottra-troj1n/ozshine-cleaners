@@ -46,7 +46,7 @@ const Value = () => {
                     </p>
                 </div>
 
-                <div className='grid grid-cols-1 px-2 lg:px-0 sm:grid-cols-2 gap-8 pb-16'>
+                <div className='grid grid-cols-1 px-2 xl:px-0 sm:grid-cols-2 gap-8 pb-16'>
                     {values.map((value, index) =>
                         <div
                             key={index}
