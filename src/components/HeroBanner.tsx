@@ -14,8 +14,6 @@ const poppins = Poppins({
 
 const HeroBanner = () => {
     const formRef = useRef<HTMLFormElement>(null);
-    const [success, setSuccess] = useState("");
-
     const sendEmail = (e: React.FormEvent) => {
         e.preventDefault();
         if (!formRef.current) return;
@@ -29,11 +27,11 @@ const HeroBanner = () => {
             .then(
                 (result) => {
                     console.log("Admin email sent:", result.text);
-                    setSuccess("Your request has been submitted!");
+                    alert("Your request has been submitted!");
                 },
                 (error) => {
                     console.log("Admin email error:", error.text);
-                    setSuccess("Something went wrong, please try again.");
+                   
                 }
             );
 
@@ -56,7 +54,7 @@ const HeroBanner = () => {
             <div className="mx-auto px-4 max-w-7xl">
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
                     {/* LEFT COLUMN */}
-                    <section className="w-full lg:w-1/2 relative mb-40 md:mb-0">
+                    <section className="w-full lg:w-1/2 relative  md:mb-0">
                         <div className="text-5xl sm:text-7xl text-center lg:text-left lg:text-[80px] lg:leading-[1.1] ">
                             <h1 className="text-black font-semibold ">
                                 Your Home.
@@ -85,17 +83,17 @@ const HeroBanner = () => {
                                 <span className="align-text-top">A healthier, safer environment for you and your family.</span>
                             </p>
                         </div>
-                        <div className="absolute md:left-[-100px] top-[250px] md:top-[220px]">
+                        <div className="flex justify-center md:justify-start md:absolute md:left-[-100px] top-[220px] md:top-[220px]">
                             <img src="/Hero.png" alt="OzShine Cleaner Service Worker with supplies"
-                                className="object-cover transform scale-x-[-1] w-[300px] h-[300px] md:w-[482px] md:h-[500px] [filter:drop-shadow(25px_5px_5px_rgba(0,0,0,0.15))]"
+                                className="object-cover transform scale-x-[-1]  max-w-2xl h-auto md:w-[482px] md:h-[500px] [filter:drop-shadow(25px_5px_5px_rgba(0,0,0,0.15))]"
                             />
                         </div>
                     </section>
 
                     {/* FORM SECTION */}
-                    <section className="lg:w-1/2 w-full mt-20">
+                    <section className="lg:w-1/2 w-full md:mt-20">
                         <div className="bg-white sm:p-10 rounded-xl w-full lg:max-w-xl lg:ml-auto ">
-                            <p className="text-lg text-center mt-15 md:mt-0 mb-6 font-bold">
+                            <p className="text-lg text-center  md:mt-0 mb-6 font-bold">
                                 Get a free quote today or  <span className="text-[#EE892A] font-bold">call us </span>!
                             </p>
                             <form ref={formRef} onSubmit={sendEmail} className="grid grid-cols-1 md:grid-cols-2 mt-8 gap-4">
@@ -149,10 +147,7 @@ const HeroBanner = () => {
                                     <button type="submit" className="bg-[#0F5E46] text-white font-bold py-3 px-6 rounded flex-1">Get Free Quote</button>
                                     <a href="tel:+61452676982" className="bg-[#FF6500] text-white font-bold py-3 px-6 rounded flex-1 flex items-center justify-center gap-2"><FaPhone />+61452676982</a>
                                 </div>
-                            </form>
-                            {success && (
-                                <p className="text-center mt-4 text-green-600 font-semibold">{success}</p>
-                            )}
+                            </form>                           
                         </div>
                     </section>
                 </div>
