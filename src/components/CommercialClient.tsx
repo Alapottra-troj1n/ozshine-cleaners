@@ -5,6 +5,7 @@ import clientThree from '../../public/client3.png'
 import clientFour from '../../public/client4.png'
 import { Poppins } from 'next/font/google';
 import Image from 'next/image';
+
 const clients = [clientOne, clientTwo, clientThree, clientFour]
 const poppins = Poppins({
     weight: ["400", "600"],
@@ -12,16 +13,22 @@ const poppins = Poppins({
     style: ["normal", "italic"],
     variable: "--font-poppins",
 });
+
 const CommercialClient = () => {
     return (
         <div className='mt-20 bg-[#0B4936]'>
             <div className='max-w-7xl mx-auto'>
-                <h2 className={`text-center font-bold text-2xl  md:text-3xl text-white pt-10 ${poppins.className}`}>Our Commercial Clients</h2>
+                <h2 className={`text-center font-bold text-2xl md:text-3xl text-white pt-10 ${poppins.className}`}>Our Commercial Clients</h2>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4'>
                     {clients.map((client, index) =>
-                        <div key={index} className='py-10 px-20 flex justify-center items-center'>
-                            <Image quality={100}
-                                priority src={client} alt='client-image' className='md:h-[100px] md:object-fit md:w-auto' />
+                        <div key={index} className='py-10 px-10 sm:px-20 flex justify-center items-center'>
+                            <Image
+                                quality={100}
+                                priority
+                                src={client}
+                                alt='client-image'
+                                className='w-[120px] h-[80px] object-contain sm:w-auto sm:h-[120px] lg:object-fill'
+                            />
                         </div>
                     )}
                 </div>
