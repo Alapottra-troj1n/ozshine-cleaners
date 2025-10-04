@@ -26,9 +26,9 @@ const features = [
 
 const About = () => {
     return (
-        <div className="max-w-7xl px-2 md:px-0 mx-auto mt-20 flex flex-col md:flex-row gap-10">
+        <div className="max-w-7xl px-2 xl:px-0 mx-auto mt-20 flex flex-col lg:flex-row gap-10">
             {/* Left Section */}
-            <div className="md:w-2/3">
+            <div className="lg:w-2/3">
                 <div className="mb-5">
                     <h2 className="inline-block border border-[#DDF8D5] rounded-full px-5 py-2 bg-[#DDF8D5] font-bold">
                         About Us
@@ -69,8 +69,8 @@ const About = () => {
             </div>
 
             {/* Right Section */}
-            <div className="md:w-1/3">
-                <Image src={Clean} alt="Cleaning service" height={700} width={500} className="rounded-xl object-cover shadow-lg h-[550px]" />
+            <div className="lg:w-1/3 w-full">
+                <Image src={Clean} alt="Cleaning service" height={700} width={500} className="rounded-xl object-cover w-full shadow-lg h-[550px]" />
             </div>
         </div>
     );

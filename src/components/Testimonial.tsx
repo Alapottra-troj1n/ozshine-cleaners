@@ -79,10 +79,7 @@ const TestimonialCard: React.FC<typeof testimonials[0]> = ({
                 style={{
                     clipPath: "polygon(0 0, 100% 0, 100% 90%, 80% 100%, 0 100%)",
                 }}>
-                <p
-                    className={`${poppins.className
-                        } italic mb-4 px-1 mt-12 tracking-tight text-justify whitespace-normal hyphens-auto text-lg ${expanded ? "" : "line-clamp-4"
-                        }`}>
+                <p className={`${poppins.className} italic mb-4 px-1 mt-12 tracking-tight text-left whitespace-normal hyphens-auto text-lg ${expanded ? "" : "line-clamp-4"}`}>
                     {des}
                 </p>
 

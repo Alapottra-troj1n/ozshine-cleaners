@@ -57,8 +57,8 @@ const Services = () => {
                                 alt={service.title}
 
                             />
-                            <h2 className='text-[#FF9531] font-semibold text-xl md:text-2xl mb-3'>{service.title}</h2>
-                            <p className={`text-justify tracking-tight text-white text-md md:text-xl leading-relaxed ${poppins.className}`}>
+                            <h2 className='text-[#FF9531] font-semibold text-xl lg:text-2xl mb-3'>{service.title}</h2>
+                            <p className={`text-left hyphenate tracking-tighter text-white text-xl leading-relaxed ${poppins.className}`}>
                                 {service.des}
                             </p>
                         </div>

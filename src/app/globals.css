@@ -37,6 +37,15 @@
   right: 10px;
   /* distance from right edge of slider */
 }
+/* For applying hyphenation globally or via a custom utility */
+.hyphenate {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    /* Optional: Improves hyphenation rules */
+    word-break: break-word; 
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;

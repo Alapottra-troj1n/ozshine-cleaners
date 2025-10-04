@@ -51,11 +51,11 @@ const HeroBanner = () => {
 
     return (
         <section id="hero-form" className={`${poppins.className} mt-[50px] md:mt-[60px] mb-20`}>
-            <div className="mx-auto px-4 max-w-7xl">
-                <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
+            <div className="mx-auto px-3 lg:px-4 max-w-7xl">
+                <div className="flex flex-col md:flex-row justify-between items-start lg:gap-12">
                     {/* LEFT COLUMN */}
                     <section className="w-full lg:w-1/2 relative  md:mb-0">
-                        <div className="text-5xl sm:text-7xl text-center lg:text-left lg:text-[80px] lg:leading-[1.1] ">
+                        <div className="text-5xl md:text-6xl lg:text-7xl text-center md:text-left xl:text-[80px] lg:leading-[1.1] ">
                             <h1 className="text-black font-semibold ">
                                 Your Home.
                             </h1>
@@ -91,7 +91,7 @@ const HeroBanner = () => {
                     </section>
 
                     {/* FORM SECTION */}
-                    <section className="lg:w-1/2 w-full md:mt-20">
+                    <section className="lg:w-1/2 w-full md:mt-10 lg:mt-20">
                         <div className="bg-white sm:p-10 rounded-xl w-full lg:max-w-xl lg:ml-auto ">
                             <p className="text-lg text-center  md:mt-0 mb-6 font-bold">
                                 Get a free quote today or  <span className="text-[#EE892A] font-bold">call us </span>!
@@ -143,7 +143,7 @@ const HeroBanner = () => {
                                         className="p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#0F5E46] focus:outline-none transition-colors w-full">
                                     </textarea>
                                 </div>
-                                <div className="flex flex-col sm:flex-row gap-4 mt-8 col-span-full">
+                                <div className="flex flex-col lg:flex-row gap-4 mt-8 col-span-full">
                                     <button type="submit" className="bg-[#0F5E46] text-white font-bold py-3 px-6 rounded flex-1">Get Free Quote</button>
                                     <a href="tel:+61452676982" className="bg-[#FF6500] text-white font-bold py-3 px-6 rounded flex-1 flex items-center justify-center gap-2"><FaPhone />+61452676982</a>
                                 </div>

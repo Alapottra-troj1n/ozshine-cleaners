@@ -19,7 +19,7 @@ const CommercialClient = () => {
         <div className='mt-20 bg-[#0B4936]'>
             <div className='max-w-7xl mx-auto'>
                 <h2 className={`text-center font-bold text-2xl md:text-3xl text-white pt-10 ${poppins.className}`}>Our Commercial Clients</h2>
-                <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4'>
+                <div className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4'>
                     {clients.map((client, index) =>
                         <div key={index} className='py-10 px-10 sm:px-20 flex justify-center items-center'>
                             <Image
@@ -27,7 +27,7 @@ const CommercialClient = () => {
                                 priority
                                 src={client}
                                 alt='client-image'
-                                className='w-[120px] h-[80px] object-contain sm:w-auto sm:h-[120px] lg:object-fill'
+                                className='w-[120px] h-[80px] object-contain lg::w-auto lg:h-[120px] lg:object-fill'
                             />
                         </div>
                     )}

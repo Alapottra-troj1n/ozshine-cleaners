@@ -46,7 +46,7 @@ const Value = () => {
                     </p>
                 </div>
 
-                <div className='grid grid-cols-1 px-2 md:px-0 sm:grid-cols-2 gap-8 pb-16'>
+                <div className='grid grid-cols-1 px-2 lg:px-0 sm:grid-cols-2 gap-8 pb-16'>
                     {values.map((value, index) =>
                         <div
                             key={index}
@@ -58,8 +58,8 @@ const Value = () => {
                                 alt={value.title}
 
                             />
-                            <h2 className='text-[#FF9531] font-semibold text-2xl mb-3'>{value.title}</h2>
-                            <p className={`text-justify tracking-tight text-white text-xl leading-relaxed ${poppins.className}`}>
+                            <h2 className='text-[#FF9531] font-semibold text-xl text-center  lg:text-2xl mb-3'>{value.title}</h2>
+                            <p className={`text-left hyphenate tracking-tighter text-white text-xl leading-relaxed ${poppins.className}`}>
                                 {value.des}
                             </p>
                         </div>
