@@ -14,9 +14,20 @@ const poppins = Poppins({
 
 const HeroBanner = () => {
     const formRef = useRef<HTMLFormElement>(null);
+
     const sendEmail = (e: React.FormEvent) => {
         e.preventDefault();
         if (!formRef.current) return;
+
+        const formData = new FormData(formRef.current);
+        const phone = formData.get("phone") as string;
+
+        const ausPhoneRegex = /^(\+61|0)[2-478]\d{8}$/;
+
+        if (phone && !ausPhoneRegex.test(phone.replace(/\s+/g, ""))) {
+            alert("Please enter a valid Australian phone number");
+            return;
+        }
 
         emailjs.sendForm(
             "service_19cfvwi",
@@ -31,11 +42,9 @@ const HeroBanner = () => {
                 },
                 (error) => {
                     console.log("Admin email error:", error.text);
-                   
                 }
             );
 
-        // Auto-reply to customer
         emailjs.sendForm(
             "service_19cfvwi",
             "template_ovj7h1s",
@@ -46,6 +55,7 @@ const HeroBanner = () => {
                 (result) => console.log("Auto-reply sent:", result.text),
                 (error) => console.log("Auto-reply error:", error.text)
             );
+
         formRef.current?.reset();
     };
 
@@ -147,7 +157,7 @@ const HeroBanner = () => {
                                     <button type="submit" className="bg-[#0F5E46] text-white font-bold py-3 px-6 rounded flex-1">Get Free Quote</button>
                                     <a href="tel:+61452676982" className="bg-[#FF6500] text-white font-bold py-3 px-6 rounded flex-1 flex items-center justify-center gap-2"><FaPhone />+61452676982</a>
                                 </div>
-                            </form>                           
+                            </form>
                         </div>
                     </section>
                 </div>
