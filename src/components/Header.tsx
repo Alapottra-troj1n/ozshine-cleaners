@@ -21,12 +21,14 @@ const Header = () => {
                 OzShine Cleaners
             </Link>
 
-            <div className="flex items-center gap-2">
-                <FaPhone className="text-[#0E4E38] text-md md:text-lg"  />
-                <div className="flex flex-col leading-tight items-center">
+            <div className="flex flex-col justify-end">
+                <div className="flex justify-end leading-tight ">
                     <span className={`${poppins.className} text-sm font-normal`}>
                         Quick Contact
                     </span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <FaPhone className="text-[#0E4E38] text-md md:text-lg scale-x-[-1] rotate-12 mb-[5px]" />
                     <a href="tel:+61452679582" className={`${poppins.className} text-lg font-semibold text-[#0E4E38]`}>
                         +61452679582
                     </a>

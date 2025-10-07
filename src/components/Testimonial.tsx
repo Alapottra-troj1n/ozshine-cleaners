@@ -153,7 +153,7 @@ const Testimonial: React.FC = () => {
                 </button>
 
                 {/* Cards */}
-                <div className="flex gap-8 flex-1 overflow-hidden">
+                <div className="flex gap-8 flex-1 overflow-hidden px-0 lg:px-10">
                     {getVisibleTestimonials().map((testimonial, idx) => (
                         <div
                             key={idx}

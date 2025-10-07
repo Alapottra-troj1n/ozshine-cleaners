@@ -26,7 +26,7 @@ const features = [
 
 const About = () => {
     return (
-        <div className="max-w-7xl px-5 xl:px-0 mx-auto mt-20 flex flex-col lg:flex-row gap-10">
+        <div className="max-w-7xl px-5  mx-auto mt-20 flex flex-col lg:flex-row gap-10">
             {/* Left Section */}
             <div className="lg:w-2/3">
                 <div className="mb-5">

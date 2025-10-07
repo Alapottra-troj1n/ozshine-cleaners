@@ -139,9 +139,7 @@ const HeroBanner = () => {
                                             required
                                             className="p-3 border border-gray-300 rounded bg-white appearance-none focus:ring-2 focus:ring-[#0F5E46] focus:outline-none transition-colors w-full pr-10"
                                         >
-                                            <option value="" disabled>
-                                                I'm Looking For:
-                                            </option>
+                                           
                                             <option>Regular House Cleaning</option>
                                             <option>Deep Cleaning</option>
                                             <option>Office Cleaning</option>
@@ -167,7 +165,7 @@ const HeroBanner = () => {
                                         href="tel:+61452676982"
                                         className="bg-[#FF6500] text-white font-bold py-3 px-6 rounded flex-1 flex items-center justify-center gap-2"
                                     >
-                                        <FaPhone />
+                                        <FaPhone className="scale-x-[-1]" />
                                         +61452676982
                                     </a>
                                 </div>

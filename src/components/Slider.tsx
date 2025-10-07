@@ -118,7 +118,7 @@ const Slider: React.FC<SliderProps> = ({ slides, height = 250 }) => {
     const maxIndex = Math.max(0, slides.length - perView);
 
     return (
-        <div className="w-full max-w-6xl mx-auto px-4">
+        <div className="w-full max-w-7xl mx-auto px-4  mb-20">
             <div className={`flex flex-col items-center justify-center mt-15 mb-5 gap-3 ${poppins.className}`}>
                 <h2 className="text-[#145B42] font-bold text-2xl md:text-3xl">Our Impactable Results</h2>
                 <p className="text-md md:text-lg text-center">

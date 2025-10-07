@@ -54,14 +54,14 @@ const Clients = () => {
                 {/* Left arrow */}
                 <button
                     onClick={prevSlide}
-                    className="absolute top-1/2 left-[-50px] transform -translate-y-1/2 bg-white text-black p-3 text-xl border border-gray-300 cursor-pointer rounded shadow-2xl z-10">
+                    className="absolute top-1/2 left-[-50px] transform -translate-y-1/2  text-[#145B42] p-3 text-2xl  cursor-pointer rounded  z-10">
                     <IoIosArrowBack />
                 </button>
 
                 {/* Right arrow */}
                 <button
                     onClick={nextSlide}
-                    className="absolute top-1/2 right-[-50px] transform -translate-y-1/2 bg-white text-black p-3 text-xl border border-gray-300 cursor-pointer rounded shadow-2xl z-10">
+                    className="absolute top-1/2 right-[-50px] transform -translate-y-1/2  text-[#145B42] p-3 text-2xl  cursor-pointer rounded  z-10">
                     <IoIosArrowForward />
                 </button>
 

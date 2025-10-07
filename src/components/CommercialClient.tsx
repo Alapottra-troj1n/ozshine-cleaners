@@ -27,7 +27,7 @@ const CommercialClient = () => {
                                 priority
                                 src={client}
                                 alt='client-image'
-                                className='w-[120px] h-[80px] object-contain lg::w-auto lg:h-[120px] lg:object-fill'
+                                className='w-[120px] h-[80px] object-contain lg:w-auto lg:h-[120px] xl:object-fit'
                             />
                         </div>
                     )}

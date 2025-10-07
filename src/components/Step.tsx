@@ -35,7 +35,7 @@ const Step = () => {
         <div>
             <div className='mt-20 flex flex-col items-center justify-center gap-5'>
                 <Image src={stepOne} alt='step-one' height={80} width={80} />
-                <h2 className={`text-[#0B4936] text-2xl md:text-3xl font-bold text-center ${poppins.className}`}>
+                <h2 className={`text-[#0B4936] text-2xl md:text-3xl font-bold text-center px-5 lg:px-0 ${poppins.className}`}>
                     3-Step House Cleaning Melbourne Process
                 </h2>
             </div>
