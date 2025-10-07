@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Poppins } from "next/font/google";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaPhone } from "react-icons/fa";
@@ -51,7 +51,8 @@ const HeroBanner = () => {
     return (
         <section
             id="hero-form"
-            className={`${poppins.className} mt-[50px] md:mt-[60px] mb-20`}>
+            className={`${poppins.className} mt-[50px] md:mt-[60px] mb-20`}
+        >
             <Toaster />
             <div className="mx-auto px-3 lg:px-4 max-w-7xl">
                 <div className="flex flex-col md:flex-row justify-between items-start lg:gap-12">

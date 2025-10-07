@@ -49,7 +49,7 @@ const Step = () => {
                             className="object-contain w-[200px] h-[200px]"
                         />
                         <h2 className={`text-xl font-bold ${poppins.className}`}>{step.title}</h2>
-                        <p className="text-[#3A3A3A] text-lg">{step.des}</p>
+                        <p className="text-[#3A3A3A] text-lg px-5 lg:px-0 ">{step.des}</p>
                     </div>
                 ))}
             </div>

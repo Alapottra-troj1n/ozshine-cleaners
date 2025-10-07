@@ -41,12 +41,12 @@ const Value = () => {
             <div className='max-w-7xl mx-auto'>
                 <div className={`mt-5 flex items-center justify-center flex-col py-10 gap-5 text-white ${poppins.className}`}>
                     <h2 className='text-2xl md:text-4xl font-bold text-center'>Our Public Reliability Insurance</h2>
-                    <p className='text-md md:text-lg text-center md:max-w-3xl '>
+                    <p className='text-md mx-4 lg:mx-0 md:text-lg text-center md:max-w-3xl '>
                         Our robust public reliability insurance coverage is designed to provide you with the utmost assurance and protection.
                     </p>
                 </div>
 
-                <div className='grid grid-cols-1 px-2 xl:px-0 sm:grid-cols-2 gap-8 pb-16'>
+                <div className='grid grid-cols-1 px-5 lg:px-0 xl:px-0 sm:grid-cols-2 gap-8 pb-16'>
                     {values.map((value, index) =>
                         <div
                             key={index}

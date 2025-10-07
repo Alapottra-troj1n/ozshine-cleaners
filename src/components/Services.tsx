@@ -40,12 +40,12 @@ const Services = () => {
             <div className='max-w-7xl mx-auto'>
                 <div className={`mt-5 flex items-center justify-center flex-col py-10 gap-5 text-white ${poppins.className}`}>
                     <h2 className='text-3xl md:text-4xl font-bold '>Our Services</h2>
-                    <p className='text-lg text-center  md:max-w-3xl mx-1 '>
+                    <p className='text-lg text-center md:max-w-3xl mx-4 lg:mx-0 '>
                         We Always Deliver Superior Service for Your Varied Cleaning Requirements in Melbourne
                     </p>
                 </div>
 
-                <div className='grid grid-cols-1 sm:grid-cols-2 px-2 gap-8 pb-16'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 px-5 gap-8 pb-16'>
                     {services.map((service, index) =>
                         <div
                             key={index}

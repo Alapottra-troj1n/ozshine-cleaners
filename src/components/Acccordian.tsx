@@ -34,9 +34,9 @@ const Accordion: React.FC = () => {
     return (
         <div className="mt-20">
             <h2 className="text-center text-[#484848] text-4xl font-bold ">FAQ</h2>
-            <div className="w-full max-w-5xl mx-auto mt-5 flex flex-col gap-2">
+            <div className="w-full max-w-5xl mx-auto mt-5  flex flex-col gap-2">
                 {items.map((item, index: number) => (
-                    <div key={index} className="border border-gray-300 rounded">
+                    <div key={index} className="border border-gray-300 rounded mx-5 lg:mx-0">
                         <button
                             onClick={() => toggleItem(index)}
                             className={`justify-between w-full p-4 text-left text-lg font-semibold focus:outline-none flex items-center ${poppins.className}`}>
