@@ -32,7 +32,7 @@ const HeroBanner = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5001/quoteInfo",
+        "https://o-zshinecleaners-server.vercel.app/quoteInfo",
         templateParams,
         { withCredentials: true }
       );
