@@ -164,8 +164,7 @@ const HeroBanner = () => {
                                             defaultValue=""
                                             required
                                             disabled={isLoading}
-                                            className="p-3 border border-gray-300 rounded bg-white appearance-none focus:ring-2 focus:ring-[#0F5E46] focus:outline-none transition-colors w-full pr-10 disabled:bg-gray-100 disabled:cursor-not-allowed"
-                                        >
+                                            className="py-3 px-2 border border-gray-300 rounded bg-white appearance-none focus:ring-2 focus:ring-[#0F5E46] focus:outline-none transition-colors w-full pr-10 disabled:bg-gray-100 disabled:cursor-not-allowed">
                                             <option>Regular House Cleaning</option>
                                             <option>Deep Cleaning</option>
                                             <option>Office Cleaning</option>
