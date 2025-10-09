@@ -184,8 +184,7 @@ const HeroBanner = () => {
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className="bg-[#0F5E46] text-white font-bold py-3 px-6 rounded flex-1 cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
-                                    >
+                                        className="bg-[#0F5E46] text-white font-bold py-3 px-6 rounded flex-1 cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2">
                                         {isLoading ? (
                                             <>
                                                 <AiOutlineLoading3Quarters className="animate-spin h-5 w-5" />
