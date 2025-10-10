@@ -52,7 +52,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <a
-                                    href="mailto:info@ozshinecleaners.com.au"
+                                    href="mailto:admin@ozshinecleaners.com"
                                     className="flex items-start gap-3 text-gray-300 hover:text-[#FF6500] transition-colors duration-300 group">
                                     <FaEnvelope className="text-[#0F5E46] text-lg mt-1 group-hover:text-[#FF6500] transition-colors" />
                                     <div>
