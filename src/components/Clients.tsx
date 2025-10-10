@@ -42,12 +42,12 @@ const Clients = () => {
                 Domestic Clients
             </h2>
 
-            <div className="relative max-w-sm md:max-w-5xl mx-auto">
+            <div className="relative max-w-sm md:max-w-7xl px-5 mx-auto">
                 <div className="flex justify-center">
                     {/* Render iframe directly as HTML */}
                     <div
                         dangerouslySetInnerHTML={{ __html: testimonials[currentIndex] }}
-                        className="w-full h-[450px]"
+                        className="w-full h-[550px]"
                     />
                 </div>
 

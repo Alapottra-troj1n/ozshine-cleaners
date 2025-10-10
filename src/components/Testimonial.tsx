@@ -137,12 +137,12 @@ const Testimonial: React.FC = () => {
     };
 
     return (
-        <div className="bg-[#F5F5F5] py-20">
+        <div className="bg-[#F5F5F5] py-20 ">
             <h2
                 className={`${poppins.className} text-2xl md:text-3xl text-[#145B42] text-center font-bold`}>
                 Hear From Our Clients
             </h2>
-            <div className="relative max-w-7xl mx-auto mt-8 flex items-center">
+            <div className="relative px-5 max-w-7xl mx-auto mt-8 flex items-center">
                 {/* Prev Button */}
                 <button
                     onClick={prevSlide}

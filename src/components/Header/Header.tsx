@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import { usePathname } from "next/navigation"; // Add this import
+import { usePathname } from "next/navigation"; 
 import Link from "next/link";
 import { FaPhone } from "react-icons/fa";
 import { Prata, Poppins } from "next/font/google";

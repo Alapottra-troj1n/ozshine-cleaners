@@ -36,7 +36,7 @@ const services = [
 ]
 const Services = () => {
     return (
-        <div className='bg-[#0B4936]  '>
+        <div className='bg-[#0B4936]'>
             <div className='max-w-7xl mx-auto'>
                 <div className={`mt-5 flex items-center justify-center flex-col py-10 gap-5 text-white ${poppins.className}`}>
                     <h2 className='text-3xl md:text-4xl font-bold '>Our Services</h2>
