@@ -24,6 +24,21 @@ const Accordion: React.FC = () => {
             title:"What sets OzShine Cleaners Melbourne apart as a leading Melbourne cleaning company?",
             content:"OzShine Cleaners stands out because of our experienced staff, eco-friendly products, and commitment to delivering high-quality results. We focus on reliability, attention to detail, and customer satisfaction, making us one of Melbourne’s most trusted cleaning companies.",
         },
+        {
+            title:'Do I get the same cleaner each time?',
+            content:'No !. Its depends on feedback. If you satisfied with previous cleaner we will provide again.'
+
+        },
+        {
+            title:'Do you bring your own equipment?',
+            content:'No !. Our professionals will bring it with them.'
+
+        },
+        {
+            title:'What areas of Melbourne do you service?',
+            content:'It based on time. Please do a call for further enquiry.'
+
+        },
     ];
 
 

@@ -14,14 +14,14 @@ const poppins = Poppins({
 
 const services = [
     {
-        title: 'Deep Cleaning',
+        title: 'Tailored cleaning plans',
         icon: serviceOne,
-        des: 'We focus on areas often overlooked in regular cleaning, removing built-up dust, dirt, and grime to restore a spotless and healthy environment. Using safe, eco-friendly products and professional techniques, our team ensures every corner is cleaned and sanitized, leaving your space fresh, hygienic, and truly revitalized.'
+        des: 'Our tailored cleaning plans discard generic checklists, focusing on your homes unique rhythm and specific needs. We conduct a detailed consultation to create a fully personalized checklist, ensuring maximum efficiency and satisfaction.'
     },
     {
-        title: 'End of Lease Cleaning',
+        title: 'Office Cleaning',
         icon: serviceTwo,
-        des: 'Ensure a smooth transition with our professional end-of-lease cleaning services. Our expert team will leave your rental property spotless, ensuring you receive your full bond back. Ideal for landlords, tenants, and those moving into a new home, our thorough cleaning includes deep carpet cleaning.'
+        des: 'We deliver professional, hygienic cleaning for every corner of your workspace, from high-touch surfaces to common areas. Using eco-friendly products and expert methods, we ensure a pristine environment that enhances productivity and makes a lasting, positive impression.'
     },
     {
         title: 'Carpet Cleaning',

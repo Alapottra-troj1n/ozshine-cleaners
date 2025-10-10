@@ -17,13 +17,13 @@ const rating = 5;
 const testimonials = [
     {
         icon: testimonialIcon,
-        des: "The communicaton with the company was seamless. They were responsive to my inquiries and scheduling the service was hassel-free. The pricing was transparent and there were no hidden fees or surprises.",
-        testimoniName: "Afzal Khattak",
+        des: "I recently used Oz Shine Cleaners for their services, and I'm extremely satisfied with the results. The team was punctual, professional, and thorough in their cleaning. My space now looks impeccable, and they exceeded my expectations. I highly recommend Oz Shine Cleaners for their top-notch service and attention to detail.",
+        testimoniName: "Ahmad Amin",
     },
     {
         icon: testimonialIcon,
-        des: "The team was friendly and approachable, making the entire process a pleasant experience. They were receptive to my specific requests and went above and beyond to ensure I was satified with the results.",
-        testimoniName: "Mohammed Shoaib",
+        des: "Ozshine Cleaners did an outstanding job cleaning my house. They were professional, efficient, and left everything sparkling. Highly recommend!",
+        testimoniName: "Anesh Chakma 968",
     },
     {
         icon: testimonialIcon,
@@ -139,16 +139,14 @@ const Testimonial: React.FC = () => {
     return (
         <div className="bg-[#F5F5F5] py-20">
             <h2
-                className={`${poppins.className} text-2xl md:text-3xl text-[#145B42] text-center font-bold`}
-            >
+                className={`${poppins.className} text-2xl md:text-3xl text-[#145B42] text-center font-bold`}>
                 Hear From Our Clients
             </h2>
             <div className="relative max-w-7xl mx-auto mt-8 flex items-center">
                 {/* Prev Button */}
                 <button
                     onClick={prevSlide}
-                    className="z-20 text-2xl text-[#145B42] p-3 rounded cursor-pointer border border-white bg-white shadow-md hover:bg-[#145B42] hover:text-white transition-all"
-                >
+                    className="z-20 text-2xl text-[#145B42] p-3 rounded cursor-pointer border border-white bg-white shadow-md hover:bg-[#145B42] hover:text-white transition-all">
                     <IoIosArrowBack />
                 </button>
 
@@ -157,8 +155,7 @@ const Testimonial: React.FC = () => {
                     {getVisibleTestimonials().map((testimonial, idx) => (
                         <div
                             key={idx}
-                            className={`flex-1 min-w-[300px] transition-all duration-300`}
-                        >
+                            className={`flex-1 min-w-[300px] transition-all duration-300`}>
                             <TestimonialCard {...testimonial} />
                         </div>
                     ))}

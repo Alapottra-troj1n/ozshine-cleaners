@@ -1,5 +1,4 @@
 import Features from "@/components/Features";
-import Header from "@/components/Header";
 import HeroBanner from "@/components/HeroBanner";
 import Slider from "@/components/Slider";
 
@@ -21,15 +20,13 @@ import Clients from "@/components/Clients";
 import CommercialClient from "@/components/CommercialClient";
 import Call from "@/components/Call";
 import Accordion from "@/components/Acccordian";
-import Footer from "@/components/Footer";
+import Subcription from "@/components/Subcription";
 
 export default function Home() {
   return (
-    <div className="mb-10 overflow-x-hidden">
-      <header>
-        <Header />
-      </header>
-      <main>
+    <div className="mb-10 ">
+
+      <main className="overflow-x-hidden">
         <section aria-label="Hero Section">
           <HeroBanner />
         </section>
@@ -72,7 +69,9 @@ export default function Home() {
         <section aria-label="Customer Testimonials">
           <Testimonial />
         </section>
-
+        <section aria-label="Subscription">
+          <Subcription />
+        </section>
         <section aria-label="Our Clients">
           <Clients />
         </section>
@@ -88,9 +87,7 @@ export default function Home() {
           <Accordion />
         </section>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+
     </div>
   );
 }

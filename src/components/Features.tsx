@@ -1,8 +1,8 @@
 import React from 'react';
-import EcoFriendlyIcon from '../../public/ecofriendly.png';
-import RatingIcon from '../../public/Ratings.png';
-import CustomerServiceIcon from '../../public/public-service.png';
-import ExpertTraineeIcon from '../../public/operator.png';
+import EcoFriendlyIcon from '../../public/Eco-friendly.png';
+import RatingIcon from '../../public/Star.png';
+import CustomerServiceIcon from '../../public/clock.png';
+import ExpertTraineeIcon from '../../public/Cleaner-icon.png';
 import { Poppins } from "next/font/google";
 import Image from 'next/image';
 const poppins = Poppins({
@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 const features = [
     {
-        title: 'Expert Trained Staff',
+        title: 'Fully Insured',
         icon: ExpertTraineeIcon
     },
     {
@@ -21,11 +21,11 @@ const features = [
         icon: EcoFriendlyIcon
     },
     {
-        title: 'Responsible Customer Service',
+        title: 'Flexible Time Schedules',
         icon: CustomerServiceIcon
     },
     {
-        title: 'Top-Rated Google Reviews',
+        title: 'Top-Rated Melbourne Cleaners',
         icon: RatingIcon
     }
 ];
@@ -33,7 +33,7 @@ const features = [
 const Features = () => {
     return (
         <div className="bg-[#0B4936]">
-            <div className={`max-w-7xl mx-auto py-8 md:mt-44 ${poppins.className}`}>
+            <div className={`max-w-7xl mx-auto py-8 ${poppins.className}`}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-white gap-10 md:gap-0">
                     {features.map((feature, index) => (
                         <div key={index} className="flex flex-col items-center text-center px-4">
@@ -43,7 +43,7 @@ const Features = () => {
                                     height={60}
                                     width={60}
                                     alt={feature.title}
-                                    className="filter brightness-0 invert"
+                                    className=""
                                 />
                             </div>
                             <p className="text-lg font-medium w-2/3">{feature.title}</p>

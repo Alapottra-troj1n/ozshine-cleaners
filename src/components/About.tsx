@@ -11,8 +11,8 @@ const poppins = Poppins({
 
 const features = [
     {
-        title: "Safe and Healthy Spaces",
-        text: "Cruelty-free cleaning products and HEPA-filtered vacuums to eliminate toxins and allergens, creating a healthier environment for your family.",
+        title: "Speak directly to busy professionals and families",
+        text: "For Melbourne homeowners who want more time for what matters — and less time cleaning."
     },
     {
         title: "Trusted Professionals",

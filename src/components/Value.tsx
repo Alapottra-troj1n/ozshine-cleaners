@@ -40,7 +40,7 @@ const Value = () => {
         <div className='bg-[#0B4936] mt-20'>
             <div className='max-w-7xl mx-auto'>
                 <div className={`mt-5 flex items-center justify-center flex-col py-10 gap-5 text-white ${poppins.className}`}>
-                    <h2 className='text-2xl md:text-4xl font-bold text-center'>Our Public Reliability Insurance</h2>
+                    <h2 className='text-2xl md:text-4xl mx-3 lg:mx-0 font-bold text-center'>Our Public Reliability Insurance</h2>
                     <p className='text-md mx-4 lg:mx-0 md:text-lg text-center md:max-w-3xl '>
                         Our robust public reliability insurance coverage is designed to provide you with the utmost assurance and protection.
                     </p>
