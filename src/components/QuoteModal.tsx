@@ -30,7 +30,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
         if (showSuccessModal) {
             const timer = setTimeout(() => {
                 setShowSuccessModal(false);
-            }, 30000); 
+            }, 30000);
 
             return () => clearTimeout(timer);
         }
@@ -68,6 +68,8 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
             name: formData.get("name"),
             email: formData.get("email"),
             phone: formData.get("phone"),
+            suburb: formData.get("suburb"),
+            frequency: formData.get("frequency"),
             service: formData.get("service"),
             message: formData.get("message"),
         };
@@ -84,7 +86,6 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
             if (response.data.success) {
                 formRef.current?.reset();
 
-                // 🚀 THE KEY CHANGE: Close the main modal and then open the success modal
                 onClose();
                 setShowSuccessModal(true);
             }
@@ -134,7 +135,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
 
                         {/* Success Message */}
                         <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                            Thank You! 🎉
+                            Thank You!
                         </h3>
                         <p className="text-gray-600 mb-6 leading-relaxed">
                             Your quote request has been received! We'll call you within <span className="font-semibold text-[#0F5E46]">30 minutes</span> to confirm your details and provide a personalized quote.
@@ -197,17 +198,14 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                                     </p>
                                 </div>
 
-                                <form
-                                    ref={formRef}
-                                    onSubmit={sendEmail}
-                                    className="space-y-4">
+                                <form ref={formRef} onSubmit={sendEmail} className="space-y-5">
                                     {/* Name & Email Row */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="relative">
                                             <input
                                                 type="text"
                                                 name="name"
-                                                placeholder="Full Name"
+                                                placeholder="Name"
                                                 required
                                                 disabled={isLoading}
                                                 className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 placeholder:text-gray-400"
@@ -217,7 +215,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                                             <input
                                                 type="email"
                                                 name="email"
-                                                placeholder="Email Address"
+                                                placeholder="Email"
                                                 required
                                                 disabled={isLoading}
                                                 className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 placeholder:text-gray-400"
@@ -230,21 +228,64 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                                         <input
                                             type="tel"
                                             name="phone"
-                                            placeholder="Phone Number"
+                                            placeholder="Phone"
                                             disabled={isLoading}
                                             className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 placeholder:text-gray-400"
                                         />
+                                    </div>
+
+                                    {/* Suburb & Frequency Row */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {/* Suburb selection */}
+                                        <div className="relative">
+                                            <select
+                                                name="suburb"
+                                                defaultValue=""
+                                                required
+                                                disabled={isLoading}
+                                                className="w-full p-3 border-2 border-gray-200 rounded-lg bg-white appearance-none focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 cursor-pointer">
+                                                {/* <option value="" disabled>Select Suburb</option> */}
+                                                <option>Richmond</option>
+                                                <option>South Yarra / Toorak / Malvern East</option>
+                                                <option>Brunswick / Carlton / Fitzroy</option>
+                                                <option>Hawthorn / Camberwell / Kew</option>
+                                                <option>Footscray / Yarraville / Williamstown</option>
+                                                <option>Box Hill / Doncaster / Blackburn</option>
+                                                <option>Glen Waverley / Mount Waverley / Burwood</option>
+                                                <option>Essendon / Moonee Ponds / Brunswick East</option>
+                                                <option>Balwyn North / Camberwell East</option>
+                                                <option>Werribee / Cranbourne / Craigieburn / Tarneit / Pakenham</option>
+                                            </select>
+                                            <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0F5E46] pointer-events-none text-xl" />
+                                        </div>
+
+                                        {/* Frequency selection */}
+                                        <div className="relative">
+                                            <select
+                                                name="frequency"
+                                                defaultValue=""
+                                                required
+                                                disabled={isLoading}
+                                                className="w-full p-3 border-2 border-gray-200 rounded-lg bg-white appearance-none focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 cursor-pointer">
+                                                {/* <option value="" disabled>Select Frequency</option> */}
+                                                <option>Weekly</option>
+                                                <option>Fortnightly</option>
+                                                <option>Monthly</option>
+                                            </select>
+                                            <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0F5E46] pointer-events-none text-xl" />
+                                        </div>
                                     </div>
 
                                     {/* Service Selection */}
                                     <div className="relative">
                                         <select
                                             name="service"
-                                            defaultValue="Regular House Cleaning"
+                                            defaultValue=""
                                             required
                                             disabled={isLoading}
                                             className="w-full p-3 border-2 border-gray-200 rounded-lg bg-white appearance-none focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 cursor-pointer">
-                                            <option>Regular House Cleaning</option>
+                                            {/* <option value="" disabled>Select a Service</option> */}
+                                            {/* <option>Regular House Cleaning</option> */}
                                             <option>Office Cleaning</option>
                                         </select>
                                         <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0F5E46] pointer-events-none text-xl" />
@@ -254,20 +295,19 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                                     <div className="relative">
                                         <textarea
                                             name="message"
-                                            placeholder="Tell us about your cleaning needs..."
+                                            placeholder="Tell us about your cleaning needs... (optional)"
                                             rows={4}
-                                            required
                                             disabled={isLoading}
-                                            className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 placeholder:text-gray-400 resize-none">
-                                        </textarea>
+                                            className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 placeholder:text-gray-400 resize-none"
+                                        ></textarea>
                                     </div>
 
-                                    {/* Buttons with Gradients */}
-                                    <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                                    {/* Buttons */}
+                                    <div className="flex flex-col sm:flex-row gap-4">
                                         <button
                                             type="submit"
                                             disabled={isLoading}
-                                            className="bg-gradient-to-r from-[#0F5E46] to-[#013627] text-white font-bold py-4 px-6 rounded-lg flex-1 cursor-pointer disabled:bg-gradient-to-r disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
+                                            className=" bg-[#02352d] text-white font-bold py-4 px-6 rounded-lg flex-1 cursor-pointer disabled:bg-gradient-to-r disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
                                             <span className="relative z-10 flex items-center gap-2">
                                                 {isLoading ? (
                                                     <>
@@ -275,13 +315,13 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                                                         Submitting...
                                                     </>
                                                 ) : (
-                                                    "Get Free Quote"
+                                                    "Submit for Free Quote"
                                                 )}
                                             </span>
                                         </button>
                                         <a
                                             href="tel:+61452676982"
-                                            className="bg-gradient-to-r from-[#FF6500] to-[#ac4907] text-white font-bold py-4 px-6 rounded-lg flex-1 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
+                                            className=" bg-[#cc5709] text-white font-bold py-4 px-6 rounded-lg flex-1 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
                                             <span className="relative z-10 flex items-center gap-2">
                                                 <FaPhone className="scale-x-[-1]" />
                                                 <span className="hidden sm:inline">Call:</span> +61452676982
@@ -289,8 +329,8 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                                         </a>
                                     </div>
 
-                                    {/* Info Banner */}
-                                    <div className="bg-amber-50 border-l-4 border-[#EE892A] p-4 rounded-r-lg mt-4">
+                                    {/* Important Notice */}
+                                    <div className="bg-amber-50 border-l-4 border-[#EE892A] p-4 rounded-r-lg mt-6">
                                         <div className="flex items-start gap-3">
                                             <MdInfo className="text-[#EE892A] text-xl flex-shrink-0 mt-0.5" />
                                             <div className="text-sm text-gray-700 leading-relaxed">

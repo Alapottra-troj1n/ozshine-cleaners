@@ -25,7 +25,7 @@ const features = [
         icon: CustomerServiceIcon
     },
     {
-        title: 'Top-Rated Melbourne Cleaners',
+        title: 'Google 5-Star Rated Cleaners',
         icon: RatingIcon
     }
 ];
