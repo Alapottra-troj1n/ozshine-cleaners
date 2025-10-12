@@ -201,7 +201,7 @@ const Page = () => {
                                 <h1 className="text-white font-semibold text-xl lg:text-5xl max-w-md md:max-w-[950px] mx-auto">
                                     Melbourne's Most Trusted <span className="text-green-400">Regular House Cleaning </span> Service.
                                 </h1>
-                                <h3 className="text-white text-sm max-w-xs lg:text-[17px] md:max-w-lg lg:max-w-3xl mx-auto my-5">
+                                <h3 className="text-white text-sm max-w-sm lg:text-[17px] md:max-w-lg lg:max-w-3xl mx-auto my-5">
                                     Weekly, fortnightly & monthly cleaning for busy families — eco-friendly, insured & reliable.
                                 </h3>
                             </div>
