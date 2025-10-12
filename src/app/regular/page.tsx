@@ -7,6 +7,15 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { MdInfo, MdClose } from "react-icons/md";
 import HomeCleanImage from '../../../public/HomeCleaning/HomeClean.jpg'
 
+import beforeTwo from '../../../public/Before-2.jpg'
+import afterTwo from '../../../public/After-2.jpg'
+import beforeThree from '../../../public/Before-3.jpg'
+import afterThree from '../../../public/After-3.jpg'
+import beforeFour from '../../../public/Befor-4.jpg'
+import afterFour from '../../../public/After-4.jpg'
+import beforeOne from '../../../public/before-1.jpg'
+import afterOne from '../../../public/after-1.jpg'
+
 // Feature Image
 import EcoFriendlyIcon from '../../../public/Eco-friendly.png';
 import RatingIcon from '../../../public/Star.png';
@@ -17,6 +26,18 @@ import toast, { Toaster } from "react-hot-toast";
 import Features from "@/components/Features";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
+import Slider from "@/components/Slider";
+import Services from "@/components/Services";
+import About from "@/components/About";
+import CallToAction from "@/components/CallToAction";
+import Step from "@/components/Step";
+import Value from "@/components/Value";
+import Testimonial from "@/components/Testimonial";
+import Clients from "@/components/Clients";
+import CommercialClient from "@/components/CommercialClient";
+import Call from "@/components/Call";
+import Accordion from "@/components/Acccordian";
+import CallButton from "@/components/CallButton";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -168,14 +189,14 @@ const Page = () => {
                             <div className="space-y-3">
                                 <a
                                     href="tel:+61452676982"
-                                    className="bg-gradient-to-r from-[#FF6500] to-[#ff8534] hover:from-[#e55a00] hover:to-[#ff6500] text-white font-bold py-4 px-6 rounded-lg w-full flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                    className="bg-[#EE892A] text-white font-bold py-4 px-6 rounded-lg w-full flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                     <FaPhone className="text-xl scale-x-[-1]" />
                                     Call Us Now: +61452676982
                                 </a>
 
                                 <button
                                     onClick={handleGoHome}
-                                    className="bg-gradient-to-r from-[#0F5E46] to-[#1a7a5e] hover:from-[#0d4d39] hover:to-[#15654d] text-white font-bold py-4 px-6 rounded-lg w-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                    className="bg-[#0F5E46] text-white font-bold py-4 px-6 rounded-lg w-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                     Go To Home
                                 </button>
                             </div>
@@ -199,7 +220,7 @@ const Page = () => {
                         <section className="w-full md:mb-0">
                             <div className="text-center lg:leading-[1.1]">
                                 <h1 className="text-white font-semibold text-xl lg:text-5xl max-w-md md:max-w-[950px] mx-auto">
-                                    Melbourne's Most Trusted <span className="text-green-400">Regular House Cleaning </span> Service.
+                                    Melbourne's Most Trusted <span className="text-[#11b87d]">Regular House Cleaning </span> Service.
                                 </h1>
                                 <h3 className="text-white text-sm max-w-sm lg:text-[17px] md:max-w-lg lg:max-w-3xl mx-auto my-5">
                                     Weekly, fortnightly & monthly cleaning for busy families — eco-friendly, insured & reliable.
@@ -208,12 +229,12 @@ const Page = () => {
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 my-12 lg:my-0 lg:py-10">
                                 <button
                                     onClick={() => document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' })}
-                                    className="bg-green-700 font-semibold text-sm md:text-lg cursor-pointer text-white px-5 py-3 rounded hover:bg-green-800 transition-colors w-full sm:w-auto text-center">
+                                    className="bg-[#0E4E38] font-semibold text-sm md:text-lg cursor-pointer text-white px-5 py-3 rounded w-full lg:w-[200px] text-center">
                                     Get Free Quote
                                 </button>
                                 <a
                                     href="tel:+61452679582"
-                                    className="bg-orange-700 font-semibold text-sm lg:text-lg text-white px-5 py-3 rounded hover:bg-orange-800 transition-colors w-full sm:w-auto text-center">
+                                    className="bg-[#EE892A] font-semibold text-sm lg:text-lg text-white px-5 py-3 rounded  w-full lg:w-[200px] text-center">
                                     Call Us
                                 </a>
                             </div>
@@ -390,7 +411,7 @@ const Page = () => {
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className=" bg-[#02352d] text-white font-bold py-4 px-6 rounded-lg flex-1 cursor-pointer disabled:bg-gradient-to-r disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
+                                        className=" bg-[#0E4E38] text-white font-bold py-4 px-6 rounded-lg flex-1 cursor-pointer disabled:bg-gradient-to-r disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
                                         <span className="relative z-10 flex items-center gap-2">
                                             {isLoading ? (
                                                 <>
@@ -404,7 +425,7 @@ const Page = () => {
                                     </button>
                                     <a
                                         href="tel:+61452676982"
-                                        className=" bg-[#cc5709] text-white font-bold py-4 px-6 rounded-lg flex-1 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
+                                        className=" bg-[#EE892A] text-white font-bold py-4 px-6 rounded-lg flex-1 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
                                         <span className="relative z-10 flex items-center gap-2">
                                             <FaPhone className="scale-x-[-1]" />
                                             <span className="hidden sm:inline">Call:</span> +61452676982
@@ -429,6 +450,24 @@ const Page = () => {
                 </div>
             </section>
             <Features />
+            <Slider slides={[
+                { beforeImage: beforeTwo.src, afterImage: afterTwo.src },
+                { beforeImage: beforeThree.src, afterImage: afterThree.src },
+                { beforeImage: beforeFour.src, afterImage: afterFour.src },
+                { beforeImage: beforeOne.src, afterImage: afterOne.src },
+            ]}
+                height={400} />
+            <Services />
+            <About />
+            <CallToAction />
+            <Step />
+            <Value />
+            <Testimonial />
+            <Clients />
+            <CommercialClient />
+            <Call />
+            <Accordion />
+            <CallButton />
         </div>
     );
 };

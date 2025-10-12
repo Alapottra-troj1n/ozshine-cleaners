@@ -250,7 +250,7 @@ const HeroBanner = () => {
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className=" bg-[#02352d] text-white font-bold py-4 px-6  rounded-lg flex-1 cursor-pointer disabled:bg-gradient-to-r disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
+                                        className="bg-[#0E4E38] text-white font-bold py-4 px-6  rounded-lg flex-1 cursor-pointer disabled:bg-gradient-to-r disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
                                         <span className="relative z-10 flex items-center gap-2 text-sm">
                                             {isLoading ? (
                                                 <>
@@ -264,7 +264,7 @@ const HeroBanner = () => {
                                     </button>
                                     <a
                                         href="tel:+61452676982"
-                                        className=" bg-[#cc5709] text-white font-bold py-4 px-6 rounded-lg flex-1 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
+                                        className=" bg-[#EE892A] text-white font-bold py-4 px-6 rounded-lg flex-1 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] relative overflow-hidden group">
                                         <span className="relative z-10 flex items-center gap-2">
                                             <FaPhone className="scale-x-[-1]" />
                                             <span className="hidden sm:inline text-sm">Call:</span> +61452676982

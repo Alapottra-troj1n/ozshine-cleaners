@@ -40,8 +40,7 @@ const Navbar: React.FC<NavbarProps> = ({ onQuoteClick }) => {
                 onClick={() => handleLinkClick(action)}
                 className={`relative text-base font-medium transition-colors duration-300 group py-2
                     ${isActive ? 'text-[#0F5E46]' : 'text-gray-700 hover:text-[#0F5E46]'}
-                `}
-            >
+                `}>
                 {label}
                 <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#0F5E46] to-[#FF6500] group-hover:w-full transition-all duration-300
                     ${isActive ? 'w-full' : ''}
@@ -81,10 +80,8 @@ const Navbar: React.FC<NavbarProps> = ({ onQuoteClick }) => {
 
                 <button
                     onClick={() => handleLinkClick(onQuoteClick)}
-                    className="relative text-gray-700 font-medium text-base hover:text-[#0F5E46] transition-colors duration-300 group py-2 cursor-pointer bg-transparent border-none"
-                >
+                    className="relative font-medium text-base bg-[#0F5E46]  duration-300  px-5 py-2 text-white rounded cursor-pointer">
                     Quote
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#0F5E46] to-[#FF6500] group-hover:w-full transition-all duration-300"></span>
                 </button>
             </nav>
 
@@ -92,16 +89,13 @@ const Navbar: React.FC<NavbarProps> = ({ onQuoteClick }) => {
             <button
                 className="md:hidden text-2xl text-[#0F5E46] p-2 focus:outline-none z-50"
                 onClick={() => setIsMenuOpen(true)}
-                aria-label="Open menu"
-            >
+                aria-label="Open menu">
                 <HiMenu className="text-xl" />
             </button>
 
             {/* Mobile Navbar */}
-            <div
-                className={`fixed inset-0 z-50 transform transition-all duration-500 ease-in-out md:hidden ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-                    }`}
-            >
+            <div className={`fixed inset-0 z-50 transform transition-all duration-500 ease-in-out md:hidden ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+                    }`}>
                 {isMenuOpen && (
                     <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
                 )}
@@ -110,8 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({ onQuoteClick }) => {
                     <button
                         className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 p-2"
                         onClick={() => setIsMenuOpen(false)}
-                        aria-label="Close menu"
-                    >
+                        aria-label="Close menu">
                         <MdClose className="text-3xl" />
                     </button>
 

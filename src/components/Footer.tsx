@@ -15,7 +15,7 @@ const Footer = () => {
     return (
         <footer className={`${poppins.className} bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white mt-20`}>
             {/* Main Footer Content */}
-            <div className="max-w-7xl mx-auto px-5 py-5">
+            <div className="max-w-5xl mx-auto px-5 py-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
 
                     {/* Company Info */}
@@ -29,9 +29,7 @@ const Footer = () => {
                                 className="drop-shadow-lg"
                             />
                         </Link>
-                        <p className="text-gray-300 text-sm leading-relaxed mb-6 max-w-md">
-                            Melbourne's trusted cleaning service for over 8 years. We specialize in eco-friendly recurring home cleaning services for families who value a healthy, spotless home.
-                        </p>                    
+                                          
                     </div>
 
                     {/* Contact Info */}
@@ -39,7 +37,7 @@ const Footer = () => {
                         <h3 className="text-2xl font-bold mb-4 text-white relative inline-block">
                             Contact Us
                         </h3>
-                        <ul className="space-y-4">
+                        <ul className="space-y-4  ">
                             <li>
                                 <a href="tel:+61452679582"
                                     className="flex items-start gap-3 text-gray-300 hover:text-[#FF6500] transition-colors duration-300 group">

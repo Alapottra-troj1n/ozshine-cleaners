@@ -20,7 +20,6 @@ import Clients from "@/components/Clients";
 import CommercialClient from "@/components/CommercialClient";
 import Call from "@/components/Call";
 import Accordion from "@/components/Acccordian";
-import Subcription from "@/components/Subcription";
 import CallButton from "@/components/CallButton";
 
 export default function Home() {
@@ -70,9 +69,9 @@ export default function Home() {
         <section aria-label="Customer Testimonials">
           <Testimonial />
         </section>
-        <section aria-label="Subscription">
+        {/* <section aria-label="Subscription">
           <Subcription />
-        </section>
+        </section> */}
         <section aria-label="Our Clients">
           <Clients />
         </section>

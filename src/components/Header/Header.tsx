@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import { usePathname } from "next/navigation"; 
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { FaPhone } from "react-icons/fa";
 import { Prata, Poppins } from "next/font/google";
@@ -54,9 +54,15 @@ const Header = () => {
 
                 <div className="flex flex-col justify-end">
                     <div className="flex justify-end leading-tight ">
-                        <span className={`${poppins.className} text-sm font-normal`}>
-                            Quick Contact
-                        </span>
+                        <button
+                            onClick={() => setIsModalOpen(true)}
+                            className={`${poppins.className} text-sm font-normal bg-[#0E4E38] text-white px-6 py-1 rounded block lg:hidden `}>
+                          Get Quote
+                        </button>
+                        <button                         
+                            className={`${poppins.className} text-sm font-normal text-[#0E4E38]  lg:block hidden `}>
+                          Quick Contact
+                        </button>
                     </div>
                     <div className="flex items-center gap-2">
                         <FaPhone className="text-[#0E4E38] text-sm scale-x-[-1] rotate-12 mb-[5px]" />
@@ -66,9 +72,9 @@ const Header = () => {
                     </div>
                 </div>
             </header>
-            {!isHomePage && (
-                <QuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-            )}
+
+            <QuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
         </>
     );
 };
