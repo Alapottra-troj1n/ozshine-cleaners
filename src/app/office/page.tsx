@@ -211,7 +211,7 @@ const Page = () => {
                                             </div>
                                             <div>
                                                 <h4 className="md:text-white font-semibold text-lg mb-2">100% Eco-Friendly</h4>
-                                                <p className="md:text-gray-200 text-sm">Non-toxic products safe for your kids and pets.</p>
+                                                <p className="md:text-gray-200 text-sm">Non-toxic products safe for nature, pets and people.</p>
                                             </div>
                                         </div>
                                     </div>

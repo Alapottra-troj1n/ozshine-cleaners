@@ -21,6 +21,7 @@ import CommercialClient from "@/components/CommercialClient";
 import Call from "@/components/Call";
 import Accordion from "@/components/Acccordian";
 import Subcription from "@/components/Subcription";
+import CallButton from "@/components/CallButton";
 
 export default function Home() {
   return (
@@ -85,6 +86,9 @@ export default function Home() {
         </section>
         <section aria-label="Frequently Asked Questions">
           <Accordion />
+        </section>
+        <section>
+          <CallButton />
         </section>
       </main>
 
