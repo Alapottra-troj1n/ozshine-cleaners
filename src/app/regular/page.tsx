@@ -198,14 +198,14 @@ const Page = () => {
                         {/* LEFT COLUMN */}
                         <section className="w-full md:mb-0">
                             <div className="text-center lg:leading-[1.1]">
-                                <h1 className="text-white font-semibold text-xl lg:text-5xl lg:max-w-[950px] mx-auto">
+                                <h1 className="text-white font-semibold text-xl lg:text-5xl max-w-md md:max-w-[950px] mx-auto">
                                     Melbourne's Most Trusted <span className="text-green-400">Regular House Cleaning </span> Service.
                                 </h1>
-                                <h3 className="text-white text-sm max-w-xs lg:text-[17px] lg:max-w-3xl mx-auto my-5">
+                                <h3 className="text-white text-sm max-w-xs lg:text-[17px] md:max-w-lg lg:max-w-3xl mx-auto my-5">
                                     Weekly, fortnightly & monthly cleaning for busy families — eco-friendly, insured & reliable.
                                 </h3>
                             </div>
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 my-6 lg:my-0 lg:py-10">
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 my-12 lg:my-0 lg:py-10">
                                 <button
                                     onClick={() => document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' })}
                                     className="bg-green-700 font-semibold text-sm md:text-lg cursor-pointer text-white px-5 py-3 rounded hover:bg-green-800 transition-colors w-full sm:w-auto text-center">
@@ -230,8 +230,8 @@ const Page = () => {
                                                 </svg>
                                             </div>
                                             <div>
-                                                <h4 className="lg:text-white font-semibold text-lg mb-2">100% Eco-Friendly</h4>
-                                                <p className="lg:text-gray-200 text-sm">Non-toxic products safe for your kids and pets.</p>
+                                                <h4 className="md:text-white font-semibold text-lg mb-2">100% Eco-Friendly</h4>
+                                                <p className="md:text-gray-200 text-sm">Non-toxic products safe for your kids and pets.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -245,8 +245,8 @@ const Page = () => {
                                                 </svg>
                                             </div>
                                             <div>
-                                                <h4 className="lg:text-white font-semibold text-lg mb-2">8+ Years Trusted</h4>
-                                                <p className="lg:text-gray-200 text-sm">Premium recurring cleaning solutions.</p>
+                                                <h4 className="md:text-white font-semibold text-lg mb-2">8+ Years Trusted</h4>
+                                                <p className="md:text-gray-200 text-sm">Premium recurring cleaning solutions.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -260,8 +260,8 @@ const Page = () => {
                                                 </svg>
                                             </div>
                                             <div>
-                                                <h4 className="lg:text-white font-semibold text-lg mb-2">100+ Happy Families</h4>
-                                                <p className="lg:text-gray-200 text-sm">Reliable, high-quality service guarantee.</p>
+                                                <h4 className="md:text-white font-semibold text-lg mb-2">100+ Happy Families</h4>
+                                                <p className="md:text-gray-200 text-sm">Reliable, high-quality service guarantee.</p>
                                             </div>
                                         </div>
                                     </div>
