@@ -439,12 +439,12 @@ const Page = () => {
             ]}
                 height={400} />
             <Services />
-            <About />
+            {/* <About /> */}
             <CallToAction />
             <Step />
             <Value />
             <Testimonial />
-            <Clients />
+            {/* <Clients /> */}
             <CommercialClient />
             <Call />
             <Accordion />

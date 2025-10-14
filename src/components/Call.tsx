@@ -14,7 +14,7 @@ const Call = () => {
                 <FaPhone className='scale-x-[-1]' />
                 <h2>Call us now</h2>
             </div>
-            <span className={`bg-[#FF9531] px-6 py-2 text-white rounded font-semibold ${poppins.className}`}>+61452679582</span>
+            <a href='tel:+61452679582' className={`bg-[#FF9531] px-6 py-2 text-white rounded font-semibold ${poppins.className}`}>+61452679582</a>
         </div>
     );
 };
