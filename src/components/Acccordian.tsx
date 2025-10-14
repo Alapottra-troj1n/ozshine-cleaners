@@ -31,12 +31,12 @@ const Accordion: React.FC = () => {
         },
         {
             title: 'Do you bring your own equipment?',
-            content: 'No !. Our professionals will bring it with them.'
+            content: 'Yes, we provide  consumable products and equipment according to the client’s requirements.'
 
         },
         {
             title: 'What areas of Melbourne do you service?',
-            content: 'Richmon,South Yarra,Carlton,Box hill, Brunswick, Glen Waverley, Essendon, Footscray etc. Please call us for enquiry.'
+            content: 'We provide service all over Melboure Metropoliton Area city. One of our  client locations are as follows Richmon,South Yarra,Carlton,Box hill, Brunswick, Glen Waverley, Essendon, Footscray etc. Please call us for enquiry.'
 
         },
     ];

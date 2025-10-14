@@ -65,8 +65,8 @@ const Header = () => {
                         </button>
                     </div>
                     <div className="flex items-center gap-2">
-                        <FaPhone className="text-[#0E4E38] text-sm scale-x-[-1] rotate-12 mb-[5px]" />
-                        <a href="tel:+61452679582" className={`${poppins.className} text-lg font-semibold text-[#0E4E38]`}>
+                        <FaPhone className="text-[#EE892A] text-sm scale-x-[-1] rotate-12 mb-[5px]" />
+                        <a href="tel:+61452679582" className={`${poppins.className} text-lg font-semibold text-[#EE892A]`}>
                             +61452679582
                         </a>
                     </div>
