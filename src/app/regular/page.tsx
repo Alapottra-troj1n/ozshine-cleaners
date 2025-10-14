@@ -464,7 +464,7 @@ const Page = () => {
             <Value />
             <Testimonial />
             <Clients />
-            <CommercialClient />
+            {/* <CommercialClient /> */}
             <Call />
             <Accordion />
             <CallButton />
