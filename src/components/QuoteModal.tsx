@@ -1,9 +1,9 @@
 "use client"
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { FaPhone } from 'react-icons/fa';
 import { MdInfo, MdClose } from 'react-icons/md';
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { IoIosArrowDown } from 'react-icons/io';
 import axios from 'axios';
 import { Poppins } from 'next/font/google';
@@ -23,41 +23,7 @@ interface QuoteModalProps {
 const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     const formRef = useRef<HTMLFormElement>(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [showSuccessModal, setShowSuccessModal] = useState(false);
     const router = useRouter();
-
-    useEffect(() => {
-        if (showSuccessModal) {
-            const timer = setTimeout(() => {
-                setShowSuccessModal(false);
-            }, 30000);
-
-            return () => clearTimeout(timer);
-        }
-    }, [showSuccessModal]);
-
-    useEffect(() => {
-        const handleEscape = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {
-                if (showSuccessModal) {
-                    setShowSuccessModal(false);
-                } else {
-                    onClose();
-                }
-            }
-        };
-
-        if (isOpen || showSuccessModal) {
-            document.addEventListener('keydown', handleEscape);
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-
-        return () => {
-            document.removeEventListener('keydown', handleEscape);
-        };
-    }, [isOpen, showSuccessModal, onClose]);
 
     const sendEmail = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -85,9 +51,8 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
 
             if (response.data.success) {
                 formRef.current?.reset();
-
-                onClose();
-                setShowSuccessModal(true);
+                onClose()
+                router.push('/thankyou')
             }
         } catch (error) {
             console.error("Error submitting request:", error);
@@ -100,72 +65,9 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
         }
     };
 
-    const handleGoHome = () => {
-        setShowSuccessModal(false);
-        router.push('/');
-    };
-
-    if (!isOpen) {
-        // Only return null if both modals are closed
-        if (!showSuccessModal) return null;
-    }
 
     return (
         <>
-            <Toaster />
-
-            {/* Success Modal - Renders when showSuccessModal is true, independent of isOpen */}
-            {showSuccessModal && (
-                <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
-                    <div className={`bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center transform transition-all duration-300 ${poppins.className}`}>
-                        {/* Close button for success modal */}
-                        <button
-                            onClick={() => setShowSuccessModal(false)}
-                            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-all duration-200"
-                            aria-label="Close success modal">
-                            <MdClose className="text-2xl" />
-                        </button>
-
-                        {/* Success Icon */}
-                        <div className="mx-auto w-20 h-20 bg-gradient-to-r from-[#0F5E46] to-[#1a7a5e] rounded-full flex items-center justify-center mb-6">
-                            <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-
-                        {/* Success Message */}
-                        <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                            Thank You!
-                        </h3>
-                        <p className="text-gray-600 mb-6 leading-relaxed">
-                            Your quote request has been received! We'll call you within <span className="font-semibold text-[#0F5E46]">30 minutes</span> to confirm your details and provide a personalized quote.
-                        </p>
-
-                        {/* Buttons */}
-                        <div className="space-y-3">
-                            <a
-                                href="tel:+61452676982"
-                                className="bg-gradient-to-r from-[#FF6500] to-[#ff8534] hover:from-[#e55a00] hover:to-[#ff6500] text-white font-bold py-4 px-6 rounded-lg w-full flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                <FaPhone className="text-xl scale-x-[-1]" />
-                                Call Us Now: +61452676982
-                            </a>
-
-                            <button
-                                onClick={handleGoHome}
-                                className="bg-gradient-to-r from-[#0F5E46] to-[#1a7a5e] hover:from-[#0d4d39] hover:to-[#15654d] text-white font-bold py-4 px-6 rounded-lg w-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                Go To Home
-                            </button>
-                        </div>
-
-                        {/* Auto-close notice */}
-                        <p className="text-xs text-gray-400 mt-6">
-                            This message will automatically close in 30 seconds
-                        </p>
-                    </div>
-                </div>
-            )}
-
-            {/* Backdrop and Main Modal - Only render when isOpen is true */}
             {isOpen && (
                 <>
                     {/* Backdrop */}

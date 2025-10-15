@@ -1,10 +1,10 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Poppins } from "next/font/google";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaPhone } from "react-icons/fa";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { MdInfo, MdClose } from "react-icons/md";
+import { MdInfo } from "react-icons/md";
 import HomeCleanImage from '../../../public/HomeCleaning/HomeClean.jpg'
 
 import beforeTwo from '../../../public/Before-2.jpg'
@@ -17,9 +17,6 @@ import beforeOne from '../../../public/before-1.jpg'
 import afterOne from '../../../public/after-1.jpg'
 
 // Feature Image
-import EcoFriendlyIcon from '../../../public/Eco-friendly.png';
-import RatingIcon from '../../../public/Star.png';
-import ExpertTraineeIcon from '../../../public/Cleaner-icon.png';
 
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
@@ -34,7 +31,6 @@ import Step from "@/components/Step";
 import Value from "@/components/Value";
 import Testimonial from "@/components/Testimonial";
 import Clients from "@/components/Clients";
-import CommercialClient from "@/components/CommercialClient";
 import Call from "@/components/Call";
 import Accordion from "@/components/Acccordian";
 import CallButton from "@/components/CallButton";
@@ -45,73 +41,58 @@ const poppins = Poppins({
     variable: "--font-poppins",
 });
 
-const features = [
-    {
-        icon: ExpertTraineeIcon,
-        title: 'Fully Insured'
-    },
-    {
-        icon: EcoFriendlyIcon,
-        title: 'Eco Friendly'
-    },
-    {
-        icon: RatingIcon,
-        title: 'Top-Rated Melbourne Cleaners'
-    },
-]
+
 
 const Page = () => {
     const formRef = useRef<HTMLFormElement>(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [scrollY, setScrollY] = useState(0);
-    const [showSuccessModal, setShowSuccessModal] = useState(false);
     const router = useRouter();
 
-    useEffect(() => {
-        if (showSuccessModal) {
-            const timer = setTimeout(() => {
-                setShowSuccessModal(false);
-            }, 30000);
+    // useEffect(() => {
+    //     if (showSuccessModal) {
+    //         const timer = setTimeout(() => {
+    //             setShowSuccessModal(false);
+    //         }, 30000);
 
-            return () => clearTimeout(timer);
-        }
-    }, [showSuccessModal]);
+    //         return () => clearTimeout(timer);
+    //     }
+    // }, [showSuccessModal]);
 
-    useEffect(() => {
-        const handleEscape = (e: KeyboardEvent) => {
-            if (e.key === 'Escape' && showSuccessModal) {
-                setShowSuccessModal(false);
-            }
-        };
+    // useEffect(() => {
+    //     const handleEscape = (e: KeyboardEvent) => {
+    //         if (e.key === 'Escape' && showSuccessModal) {
+    //             setShowSuccessModal(false);
+    //         }
+    //     };
 
-        if (showSuccessModal) {
-            document.addEventListener('keydown', handleEscape);
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
+    //     if (showSuccessModal) {
+    //         document.addEventListener('keydown', handleEscape);
+    //         document.body.style.overflow = 'hidden';
+    //     } else {
+    //         document.body.style.overflow = 'unset';
+    //     }
 
-        return () => {
-            document.removeEventListener('keydown', handleEscape);
-        };
-    }, [showSuccessModal]);
+    //     return () => {
+    //         document.removeEventListener('keydown', handleEscape);
+    //     };
+    // }, [showSuccessModal]);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         setScrollY(window.scrollY);
+    //     };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
+    //     window.addEventListener('scroll', handleScroll, { passive: true });
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //     };
+    // }, []);
 
-    const handleGoHome = () => {
-        setShowSuccessModal(false);
-        router.push('/');
-    };
+    // const handleGoHome = () => {
+    //     setShowSuccessModal(false);
+    //     router.push('/');
+    // };
 
     const sendEmail = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -139,7 +120,7 @@ const Page = () => {
 
             if (response.data.success) {
                 formRef.current?.reset();
-                setShowSuccessModal(true);
+                router.push('/thankyou')
             }
         } catch (error) {
             console.error("Error submitting request:", error);
@@ -159,55 +140,55 @@ const Page = () => {
                 <Toaster />
 
                 {/* Success Modal */}
-                {showSuccessModal && (
-                    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
-                        <div className={`bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center transform transition-all duration-300 relative ${poppins.className}`}>
+                {/* {showSuccessModal && ( */}
+                    {/* <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] flex items-center justify-center p-4"> */}
+                        {/* <div className={`bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center transform transition-all duration-300 relative ${poppins.className}`}> */}
                             {/* Close button for success modal */}
-                            <button
-                                onClick={() => setShowSuccessModal(false)}
-                                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-all duration-200"
-                                aria-label="Close success modal">
-                                <MdClose className="text-2xl" />
-                            </button>
+                            {/* <button */}
+                                {/* onClick={() => setShowSuccessModal(false)} */}
+                                {/* className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-all duration-200" */}
+                                {/* aria-label="Close success modal"> */}
+                                {/* <MdClose className="text-2xl" /> */}
+                            {/* </button> */}
 
                             {/* Success Icon */}
-                            <div className="mx-auto w-20 h-20 bg-gradient-to-r from-[#0F5E46] to-[#1a7a5e] rounded-full flex items-center justify-center mb-6">
+                            {/* <div className="mx-auto w-20 h-20 bg-gradient-to-r from-[#0F5E46] to-[#1a7a5e] rounded-full flex items-center justify-center mb-6">
                                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                                 </svg>
-                            </div>
+                            </div> */}
 
                             {/* Success Message */}
-                            <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                            {/* <h3 className="text-2xl font-bold text-gray-900 mb-3">
                                 Thank You!
-                            </h3>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
+                            </h3> */}
+                            {/* <p className="text-gray-600 mb-6 leading-relaxed">
                                 Your quote request has been received! We'll call you within <span className="font-semibold text-[#0F5E46]">30 minutes</span> to confirm your details and provide a personalized quote.
-                            </p>
+                            </p> */}
 
                             {/* Buttons */}
-                            <div className="space-y-3">
+                            {/* <div className="space-y-3">
                                 <a
                                     href="tel:+61452676982"
                                     className="bg-[#EE892A] text-white font-bold py-4 px-6 rounded-lg w-full flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                     <FaPhone className="text-xl scale-x-[-1]" />
                                     Call Us Now: +61452676982
-                                </a>
+                                </a> */}
 
-                                <button
+                                {/* <button
                                     onClick={handleGoHome}
                                     className="bg-[#0F5E46] text-white font-bold py-4 px-6 rounded-lg w-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                     Go To Home
                                 </button>
-                            </div>
+                            </div> */}
 
                             {/* Auto-close notice */}
-                            <p className="text-xs text-gray-400 mt-6">
+                            {/* <p className="text-xs text-gray-400 mt-6">
                                 This message will automatically close in 30 seconds
                             </p>
                         </div>
                     </div>
-                )}
+                )} */}
 
                 <Image
                     src={HomeCleanImage}

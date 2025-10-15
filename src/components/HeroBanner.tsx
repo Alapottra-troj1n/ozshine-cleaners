@@ -5,9 +5,9 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FaPhone } from "react-icons/fa";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { MdInfo } from "react-icons/md";
-import Image from "next/image";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -18,7 +18,7 @@ const poppins = Poppins({
 const HeroBanner = () => {
     const formRef = useRef<HTMLFormElement>(null);
     const [isLoading, setIsLoading] = useState(false);
-
+    const router = useRouter();
     const sendEmail = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formRef.current) return;
@@ -44,22 +44,8 @@ const HeroBanner = () => {
             );
 
             if (response.data.success) {
-                toast.success("Thank you! Your request has been successfully submitted.", {
-                    duration: 5000,
-                    position: "top-center",
-                    style: {
-                        background: "#0F5E46",
-                        color: "#fff",
-                        padding: "16px",
-                        fontSize: "16px",
-                        fontWeight: "500",
-                    },
-                    iconTheme: {
-                        primary: "#fff",
-                        secondary: "#0F5E46",
-                    },
-                });
                 formRef.current?.reset();
+                router.push("/thankyou");
             }
         } catch (error) {
             console.error("Error submitting request:", error);
@@ -77,8 +63,6 @@ const HeroBanner = () => {
         <section
             id="hero-form"
             className={`${poppins.className} mt-[50px] md:mt-[50px] mb-[42px]`}>
-            <Toaster />
-
             <div className="mx-auto px-3 lg:px-4 max-w-7xl">
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-2 lg:gap-12">
                     {/* LEFT COLUMN */}
