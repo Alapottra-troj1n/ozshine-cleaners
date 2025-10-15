@@ -12,7 +12,7 @@ const poppins = Poppins({
 const page = () => {
     return (
         <div
-            className={`${poppins.className} min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-green-50 to-white px-6`}>
+            className={`${poppins.className} py-20 lg:py-0 lg:min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-green-50 to-white px-6`}>
             {/* Success Icon */}
             <FaCheckCircle className="text-[#0F5E46] text-7xl mb-6 drop-shadow-md animate-bounce-slow" />
 
@@ -39,7 +39,7 @@ const page = () => {
 
                 {/* Home Button */}
                 <Link href="/" className="rounded-md bg-[#0F5E46]">
-                    <span className="flex items-center gap-2 rounded-[10px] bg-white/10 px-6 py-4 text-white text-sm font-semibold backdrop-blur-md transition-all duration-300 group-hover:bg-white/20">
+                    <span className="flex items-center justify-center  gap-2 rounded-[10px] bg-white/10 px-6 py-4 text-white text-sm font-semibold backdrop-blur-md transition-all duration-300 group-hover:bg-white/20">
                         Go to Home
                     </span>
                 </Link>
