@@ -33,7 +33,7 @@ const page = () => {
                     className="rounded-md bg-[#EE892A]">
                     <span className="flex items-center justify-center gap-2 rounded-[10px] bg-white/10 px-6 py-4 text-white text-sm font-semibold backdrop-blur-md transition-all duration-300 group-hover:bg-white/20">
                         <FaPhone className="text-lg scale-x-[-1]" />
-                        Call Us Now: +61 452 676 982
+                        Call Us Now: +61452679582
                     </span>
                 </a>
 
