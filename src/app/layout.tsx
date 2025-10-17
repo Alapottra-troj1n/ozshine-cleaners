@@ -16,18 +16,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OzShine Cleaner Melbourne | Best Cleaning services in Melbourne"
+  title: "OzShine Cleaner Melbourne | Best Cleaning Services in Melbourne",
+  description:
+    "Professional cleaning services in Melbourne for homes, offices, and more. Book OzShine Cleaner today for spotless results!",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Google Ads Global Tag - Step 1 */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* Google Ads Global Tag */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17530740044"
           strategy="afterInteractive"
@@ -40,13 +40,13 @@ export default function RootLayout({
             gtag('config', 'AW-17530740044');
           `}
         </Script>
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}>
+
         <header className="bg-white sticky top-0 left-0 z-50 shadow-lg">
           <Header />
         </header>
-        {children}
+
+        <main>{children}</main>
+
         <footer>
           <Footer />
         </footer>
