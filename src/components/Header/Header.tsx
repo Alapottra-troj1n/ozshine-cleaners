@@ -40,14 +40,14 @@ const Header = () => {
     return (
         <>
             <header className="flex justify-between max-w-7xl mx-auto px-5 items-center gap-5 md:gap-0">
-                <Link href={'/'} className="hidden lg:block">
+                <Link href={'/'} className="hidden md:block">
                     <Image src={Logo} alt="ozshine-cleaners-logo" height={100} width={100} />
                 </Link>
 
-
+                {/* Mobile Logo */}
                 <div className="flex items-center">
                     <Navbar onQuoteClick={handleQuoteClick} />
-                    <Link href={'/'} className="block lg:hidden">
+                    <Link href={'/'} className="block md:hidden">
                         <Image src={Logo} alt="ozshine-cleaners-logo" height={100} width={100} />
                     </Link>
                 </div>
@@ -56,12 +56,12 @@ const Header = () => {
                     <div className="flex justify-end leading-tight ">
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className={`${poppins.className} text-sm font-normal bg-[#0E4E38] text-white px-6 py-1 rounded block lg:hidden `}>
-                          Get Quote
+                            className={`${poppins.className} text-sm font-normal bg-[#0E4E38] text-white px-6 py-1 rounded block md:hidden `}>
+                            Get Quote
                         </button>
-                        <button                         
+                        <button
                             className={`${poppins.className} text-sm font-normal text-[#0E4E38]  lg:block hidden `}>
-                          Quick Contact
+                            Quick Contact
                         </button>
                     </div>
                     <div className="flex items-center gap-2">
