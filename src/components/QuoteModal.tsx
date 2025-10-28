@@ -145,19 +145,40 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                                                 defaultValue=""
                                                 required
                                                 disabled={isLoading}
-                                                className="w-full p-3 border-2 border-gray-200 rounded-lg bg-white appearance-none focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 cursor-pointer">
-                                                {/* <option value="" disabled>Select Suburb</option> */}
+                                                className="w-full p-3 border-2 border-gray-200 rounded-lg bg-white appearance-none focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 cursor-pointer"
+                                            >
+                                                <option value="">Select Suburb</option>
                                                 <option>Richmond</option>
-                                                <option>South Yarra / Toorak / Malvern East</option>
-                                                <option>Brunswick / Carlton / Fitzroy</option>
-                                                <option>Hawthorn / Camberwell / Kew</option>
-                                                <option>Footscray / Yarraville / Williamstown</option>
-                                                <option>Box Hill / Doncaster / Blackburn</option>
-                                                <option>Glen Waverley / Mount Waverley / Burwood</option>
-                                                <option>Essendon / Moonee Ponds / Brunswick East</option>
-                                                <option>Balwyn North / Camberwell East</option>
-                                                <option>Werribee / Cranbourne / Craigieburn / Tarneit / Pakenham</option>
+                                                <option>South Yarra</option>
+                                                <option>Toorak</option>
+                                                <option>Malvern East</option>
+                                                <option>Brunswick</option>
+                                                <option>Carlton</option>
+                                                <option>Fitzroy</option>
+                                                <option>Hawthorn</option>
+                                                <option>Camberwell</option>
+                                                <option>Kew</option>
+                                                <option>Footscray</option>
+                                                <option>Yarraville</option>
+                                                <option>Williamstown</option>
+                                                <option>Box Hill</option>
+                                                <option>Doncaster</option>
+                                                <option>Blackburn</option>
+                                                <option>Glen Waverley</option>
+                                                <option>Mount Waverley</option>
+                                                <option>Burwood</option>
+                                                <option>Essendon</option>
+                                                <option>Moonee Ponds</option>
+                                                <option>Brunswick East</option>
+                                                <option>Balwyn North</option>
+                                                <option>Camberwell East</option>
+                                                <option>Werribee</option>
+                                                <option>Cranbourne</option>
+                                                <option>Craigieburn</option>
+                                                <option>Tarneit</option>
+                                                <option>Pakenham</option>
                                             </select>
+
                                             <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0F5E46] pointer-events-none text-xl" />
                                         </div>
 

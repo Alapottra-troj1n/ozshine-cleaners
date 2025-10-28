@@ -141,33 +141,33 @@ const Page = () => {
 
                 {/* Success Modal */}
                 {/* {showSuccessModal && ( */}
-                    {/* <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] flex items-center justify-center p-4"> */}
-                        {/* <div className={`bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center transform transition-all duration-300 relative ${poppins.className}`}> */}
-                            {/* Close button for success modal */}
-                            {/* <button */}
-                                {/* onClick={() => setShowSuccessModal(false)} */}
-                                {/* className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-all duration-200" */}
-                                {/* aria-label="Close success modal"> */}
-                                {/* <MdClose className="text-2xl" /> */}
-                            {/* </button> */}
+                {/* <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] flex items-center justify-center p-4"> */}
+                {/* <div className={`bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center transform transition-all duration-300 relative ${poppins.className}`}> */}
+                {/* Close button for success modal */}
+                {/* <button */}
+                {/* onClick={() => setShowSuccessModal(false)} */}
+                {/* className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-all duration-200" */}
+                {/* aria-label="Close success modal"> */}
+                {/* <MdClose className="text-2xl" /> */}
+                {/* </button> */}
 
-                            {/* Success Icon */}
-                            {/* <div className="mx-auto w-20 h-20 bg-gradient-to-r from-[#0F5E46] to-[#1a7a5e] rounded-full flex items-center justify-center mb-6">
+                {/* Success Icon */}
+                {/* <div className="mx-auto w-20 h-20 bg-gradient-to-r from-[#0F5E46] to-[#1a7a5e] rounded-full flex items-center justify-center mb-6">
                                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                                 </svg>
                             </div> */}
 
-                            {/* Success Message */}
-                            {/* <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                {/* Success Message */}
+                {/* <h3 className="text-2xl font-bold text-gray-900 mb-3">
                                 Thank You!
                             </h3> */}
-                            {/* <p className="text-gray-600 mb-6 leading-relaxed">
+                {/* <p className="text-gray-600 mb-6 leading-relaxed">
                                 Your quote request has been received! We'll call you within <span className="font-semibold text-[#0F5E46]">30 minutes</span> to confirm your details and provide a personalized quote.
                             </p> */}
 
-                            {/* Buttons */}
-                            {/* <div className="space-y-3">
+                {/* Buttons */}
+                {/* <div className="space-y-3">
                                 <a
                                     href="tel:+61452676982"
                                     className="bg-[#EE892A] text-white font-bold py-4 px-6 rounded-lg w-full flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
@@ -175,15 +175,15 @@ const Page = () => {
                                     Call Us Now: +61452676982
                                 </a> */}
 
-                                {/* <button
+                {/* <button
                                     onClick={handleGoHome}
                                     className="bg-[#0F5E46] text-white font-bold py-4 px-6 rounded-lg w-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                     Go To Home
                                 </button>
                             </div> */}
 
-                            {/* Auto-close notice */}
-                            {/* <p className="text-xs text-gray-400 mt-6">
+                {/* Auto-close notice */}
+                {/* <p className="text-xs text-gray-400 mt-6">
                                 This message will automatically close in 30 seconds
                             </p>
                         </div>
@@ -332,18 +332,40 @@ const Page = () => {
                                             defaultValue=""
                                             required
                                             disabled={isLoading}
-                                            className="w-full p-3 border-2 border-gray-200 rounded-lg bg-white appearance-none focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 cursor-pointer">
+                                            className="w-full p-3 border-2 border-gray-200 rounded-lg bg-white appearance-none focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 cursor-pointer"
+                                        >
+                                            <option value="">Select Suburb</option>
                                             <option>Richmond</option>
-                                            <option>South Yarra / Toorak / Malvern East</option>
-                                            <option>Brunswick / Carlton / Fitzroy</option>
-                                            <option>Hawthorn / Camberwell / Kew</option>
-                                            <option>Footscray / Yarraville / Williamstown</option>
-                                            <option>Box Hill / Doncaster / Blackburn</option>
-                                            <option>Glen Waverley / Mount Waverley / Burwood</option>
-                                            <option>Essendon / Moonee Ponds / Brunswick East</option>
-                                            <option>Balwyn North / Camberwell East</option>
-                                            <option>Werribee / Cranbourne / Craigieburn / Tarneit / Pakenham</option>
+                                            <option>South Yarra</option>
+                                            <option>Toorak</option>
+                                            <option>Malvern East</option>
+                                            <option>Brunswick</option>
+                                            <option>Carlton</option>
+                                            <option>Fitzroy</option>
+                                            <option>Hawthorn</option>
+                                            <option>Camberwell</option>
+                                            <option>Kew</option>
+                                            <option>Footscray</option>
+                                            <option>Yarraville</option>
+                                            <option>Williamstown</option>
+                                            <option>Box Hill</option>
+                                            <option>Doncaster</option>
+                                            <option>Blackburn</option>
+                                            <option>Glen Waverley</option>
+                                            <option>Mount Waverley</option>
+                                            <option>Burwood</option>
+                                            <option>Essendon</option>
+                                            <option>Moonee Ponds</option>
+                                            <option>Brunswick East</option>
+                                            <option>Balwyn North</option>
+                                            <option>Camberwell East</option>
+                                            <option>Werribee</option>
+                                            <option>Cranbourne</option>
+                                            <option>Craigieburn</option>
+                                            <option>Tarneit</option>
+                                            <option>Pakenham</option>
                                         </select>
+
                                         <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0F5E46] pointer-events-none text-xl" />
                                     </div>
 
