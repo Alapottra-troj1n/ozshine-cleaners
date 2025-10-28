@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { FaPhone } from 'react-icons/fa';
 import { MdInfo, MdClose } from 'react-icons/md';
@@ -19,12 +19,43 @@ interface QuoteModalProps {
     isOpen: boolean;
     onClose: () => void;
 }
+const suburbs = [
+    "Balwyn North", "Blackburn", "Box Hill", "Brunswick", "Brunswick East",
+    "Burwood", "Camberwell", "Camberwell East", "Carlton", "Cranbourne",
+    "Craigieburn", "Doncaster", "Essendon", "Fitzroy", "Footscray",
+    "Glen Waverley", "Hawthorn", "Kew", "Malvern East", "Moonee Ponds",
+    "Mount Waverley", "Pakenham", "Richmond", "South Yarra", "Tarneit",
+    "Toorak", "Werribee", "Williamstown", "Yarraville"
+];
+
 
 const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     const formRef = useRef<HTMLFormElement>(null);
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
+    const [suburbInput, setSuburbInput] = useState('');
+    const [isSuburbOpen, setIsSuburbOpen] = useState(false);
+    const [filteredSuburbs, setFilteredSuburbs] = useState<string[]>(suburbs);
+    const suburbWrapperRef = useRef<HTMLDivElement>(null);
 
+    // Filter suburbs based on input
+    useEffect(() => {
+        const filtered = suburbs.filter(suburb =>
+            suburb.toLowerCase().includes(suburbInput.toLowerCase())
+        );
+        setFilteredSuburbs(filtered);
+    }, [suburbInput]);
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (suburbWrapperRef.current && !suburbWrapperRef.current.contains(event.target as Node)) {
+                setIsSuburbOpen(false);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
     const sendEmail = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formRef.current) return;
@@ -139,47 +170,49 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                                     {/* Suburb & Frequency Row */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         {/* Suburb selection */}
-                                        <div className="relative">
-                                            <select
+                                        <div className="relative" ref={suburbWrapperRef}>
+                                            <input
+                                                type="text"
                                                 name="suburb"
-                                                defaultValue=""
+                                                value={suburbInput}
+                                                onChange={(e) => {
+                                                    setSuburbInput(e.target.value);
+                                                    setIsSuburbOpen(true);
+                                                }}
+                                                onFocus={() => setIsSuburbOpen(true)}
+                                                placeholder="Select suburb"
                                                 required
                                                 disabled={isLoading}
-                                                className="w-full p-3 border-2 border-gray-200 rounded-lg bg-white appearance-none focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 cursor-pointer"
-                                            >
-                                                <option value="">Select Suburb</option>
-                                                <option>Richmond</option>
-                                                <option>South Yarra</option>
-                                                <option>Toorak</option>
-                                                <option>Malvern East</option>
-                                                <option>Brunswick</option>
-                                                <option>Carlton</option>
-                                                <option>Fitzroy</option>
-                                                <option>Hawthorn</option>
-                                                <option>Camberwell</option>
-                                                <option>Kew</option>
-                                                <option>Footscray</option>
-                                                <option>Yarraville</option>
-                                                <option>Williamstown</option>
-                                                <option>Box Hill</option>
-                                                <option>Doncaster</option>
-                                                <option>Blackburn</option>
-                                                <option>Glen Waverley</option>
-                                                <option>Mount Waverley</option>
-                                                <option>Burwood</option>
-                                                <option>Essendon</option>
-                                                <option>Moonee Ponds</option>
-                                                <option>Brunswick East</option>
-                                                <option>Balwyn North</option>
-                                                <option>Camberwell East</option>
-                                                <option>Werribee</option>
-                                                <option>Cranbourne</option>
-                                                <option>Craigieburn</option>
-                                                <option>Tarneit</option>
-                                                <option>Pakenham</option>
-                                            </select>
+                                                className="w-full p-3 pr-12 border-2 border-gray-200 rounded-lg bg-white focus:border-[#0F5E46] focus:ring-2 focus:ring-[#0F5E46]/20 focus:outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed text-gray-900 placeholder:text-gray-400"
+                                                autoComplete="off"
+                                            />
 
-                                            <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0F5E46] pointer-events-none text-xl" />
+                                            <IoIosArrowDown
+                                                className={`absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0F5E46] pointer-events-none text-xl transition-transform duration-200 ${isSuburbOpen ? 'rotate-180' : ''}`}
+                                            />
+
+                                            {isSuburbOpen && filteredSuburbs.length > 0 && (
+                                                <ul className="absolute z-10 w-full mt-1 bg-white border-2 border-gray-200 rounded-lg shadow-lg max-h-60 overflow-auto">
+                                                    {filteredSuburbs.map((suburb) => (
+                                                        <li
+                                                            key={suburb}
+                                                            onClick={() => {
+                                                                setSuburbInput(suburb);
+                                                                setIsSuburbOpen(false);
+                                                            }}
+                                                            className="p-3 hover:bg-[#0F5E46] hover:text-white cursor-pointer transition-colors text-gray-900"
+                                                        >
+                                                            {suburb}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+
+                                            {isSuburbOpen && filteredSuburbs.length === 0 && suburbInput && (
+                                                <div className="absolute z-10 w-full mt-1 bg-white border-2 border-gray-200 rounded-lg shadow-lg p-3 text-gray-500 text-sm">
+                                                    No suburbs found
+                                                </div>
+                                            )}
                                         </div>
 
                                         {/* Frequency selection */}
