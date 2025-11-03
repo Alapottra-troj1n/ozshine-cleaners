@@ -42,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ onQuoteClick }) => {
                     ${isActive ? 'text-[#0F5E46]' : 'text-gray-700 hover:text-[#0F5E46]'}
                 `}>
                 {label}
-                <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#0F5E46] to-[#FF6500] group-hover:w-full transition-all duration-300
+                <span className={`absolute bottom-0 left-0 w-0 h-0.5  bg-[#0F5E46] group-hover:w-full transition-all duration-300
                     ${isActive ? 'w-full' : ''}
                 `}></span>
             </Link>
@@ -100,7 +100,7 @@ const Navbar: React.FC<NavbarProps> = ({ onQuoteClick }) => {
                     <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
                 )}
 
-                <div className="relative w-72 max-w-full h-full bg-white shadow-xl p-6 flex flex-col items-start space-y-4">
+                <div className="relative w-72 max-w-full h-full bg-white shadow-md p-6 flex flex-col items-start space-y-4">
                     <button
                         className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 p-2"
                         onClick={() => setIsMenuOpen(false)}

@@ -41,7 +41,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        <header className="bg-white sticky top-0 left-0 z-50 shadow-lg">
+        <header className="bg-white sticky top-0 left-0 z-50 shadow-sm">
           <Header />
         </header>
 

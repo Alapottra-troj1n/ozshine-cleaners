@@ -105,9 +105,9 @@ const HeroBanner = () => {
                     {/* LEFT COLUMN */}
                     <section className="w-full lg:w-2/3 relative md:mb-0">
                         <div className="text-3xl md:text-5xl lg:text-5xl text-center lg:text-left lg:leading-[1.1]">
-                            <h1 className="text-black font-semibold">Melbourne's Trusted Regular  <span className="text-green-800">Cleaning Service</span> .</h1>
+                            <h1 className="text-black font-bold">Melbourne's Trusted Regular  <span className="text-green-800">Cleaning Service</span> .</h1>
                         </div>
-                        <div className="mt-8 text-lg font-medium space-y-2 max-w-xl text-black">
+                        <div className="text-lg font-medium space-y-2 max-w-2xl text-black mt-10">
                             <div className="flex items-start gap-4">
                                 <div className="bg-green-400/20 rounded-full p-2 flex-shrink-0">
                                     <svg className="w-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -116,7 +116,7 @@ const HeroBanner = () => {
                                 </div>
                                 <div>
                                     {/* <h4 className="md:text-white font-semibold text-lg mb-2">100% Eco-Friendly</h4> */}
-                                    <p className="text-md font-semibold">100% Eco-Friendly Non-toxic products safe for your kids and pets.</p>
+                                    <p className="text-md text-gray-800">100% Eco-Friendly Non-toxic products safe for your kids and pets.</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -127,7 +127,7 @@ const HeroBanner = () => {
                                 </div>
                                 <div>
                                     {/* <h4 className="md:text-white font-semibold text-lg mb-2"></h4> */}
-                                    <p className="text-md font-semibold">Trusted Premium recurring cleaning solutions for 8+ Years.</p>
+                                    <p className="text-md text-gray-800">Trusted Premium recurring cleaning solutions for 8+ Years.</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -138,7 +138,7 @@ const HeroBanner = () => {
                                 </div>
                                 <div>
                                     {/* <h4 className="md:text-white font-semibold text-lg mb-2"></h4> */}
-                                    <p className="text-md font-semibold">100+ Happy Families Rely on Our High-Quality Service.</p>
+                                    <p className="text-md text-gray-800">100+ Happy Families Rely on Our High-Quality Service.</p>
                                 </div>
                             </div>
                         </div>
@@ -248,7 +248,6 @@ const HeroBanner = () => {
                                             </div>
                                         )}
                                     </div>
-
 
                                     {/* Frequency selection */}
                                     <div className="relative">
